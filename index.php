@@ -1,0 +1,331 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+  <link rel="shortcut icon" href="./image/profile1.png" type="image/x-icon" />
+    <title>Victor Etaduovie Portfolio</title>
+</head>
+<body>
+    <header>
+        <nav class="nav">
+            <div class="logo">
+                <div class="img">
+                    <img src="./image/profile1.png" alt="">
+                </div>
+                <a href="">LOGO</a>
+            </div>
+            <div class="nav-bar">
+                <a href="#main" class="active">Home</a>
+                <a href="#about">About</a>
+                <a href="#services">Service</a>
+                <a href="#projects">Projects</a>
+                <a href="#contacts">Contact</a>
+            </div>
+            <div id="menu-btn" class="fas fa-bars"></div>
+        </nav>
+    </header>
+    <section class="main" id="main">
+        <div class="left">
+            <div class="text">
+                <h1 class="text1">Hello, I am VICTOR</h1>
+                <br><br>
+                <h2 class="text2">A FULL STACK WEB DEVELOPER</h2>
+                <br>
+                <p class="text3">I am aimed at bringing your great ideas in online presence into reality.</p>
+
+            </div>  
+        <a href="mailto:victoretad@gmail.com?subject = Feedback&body = Message">Contact Me</a>
+        </div>
+        
+        <div class="profile-img">
+            <img src="./image/profile1.png" alt="">
+        </div>
+        
+    </section>
+    <div id="about"></div>
+    <section class="about reveal">
+        <div class="about-left">
+            <div class="about-details">
+                <div class="img">
+                    <img src="./image/profile1.png" alt="">
+                </div>
+                <div class="details">
+                    <table>
+                        <tr>
+                            <td><b>Name:</b> Victor Etaduovie</td>
+                            
+                        </tr>
+                        <tr>
+                            <td><b>Profile:</b> Full Stack Web Developer</td>
+                        </tr>
+                        <tr>
+                            <td><b>Email:</b> <a href="mailto:victoretad@gmail.com?subject = Feedback&body = Message" class="link">victoretad@gmail.com</a> </td>
+                        </tr>
+                        <tr>
+                            <td><b>Phone/Whatsapp:</b> <a href="tel:+2348023144805" class="link">+2348023144805</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <br>
+            
+            <h2>My Skill</h2>
+            <div class="skill">
+                <li>
+                    <h4>HTML</h4>
+                    <span class="bar"><span class="html"></span></span>
+                </li>
+                <li>
+                    <h4>CSS</h4>
+                    <span class="bar"><span class="css"></span></span>
+                </li>
+                <li>
+                    <h4>JAVASCRIPT</h4>
+                    <span class="bar"><span class="javascript"></span></span>
+                </li>
+                <li>
+                    <h4>JQUERY</h4>
+                    <span class="bar"><span class="jquery"></span></span>
+                </li>
+                <li>
+                    <h4>AJAX</h4>
+                    <span class="bar"><span class="ajax"></span></span>
+                </li>
+                <li>
+                    <h4>PHP/ MYSQL</h4>
+                    <span class="bar"><span class="php"></span></span>
+                </li>
+                 <li>
+                    <h4>LARAVEL</h4>
+                    <span class="bar"><span class="laravel"></span></span>
+                </li>
+                <li>
+                    <h4>FLUTTER/ DART</h4>
+                    <span class="bar"><span class="flutter"></span></span>
+                </li>
+            </div>
+            
+            
+            
+        </div>
+        <div class="about-right">
+            <h1>About Me</h1>
+            <br><br>
+            <p>I am a full stack web developer by GOD'S Grace.</p>
+            <p>I work with HTML, CSS, JavaScript, jQuery, Ajax, PHP and MySql for both frontend and backend web development and I also work with Flutter, Dart and Laravel for cross-platform mobile app development.</p>
+            <br>
+            <p>I am a computer technician. I fix laptops and computer and their accessories</p>
+            <p>I am also a vendor. I sell both laptops, computers, mobile phones and their accessories</p>
+            <br>
+            <p>I am the Proprietor of StepUp Global World, which has a subsidiary of networks such as StepUp Communication, where I offer vendor and technical repair services, and StepUp Development, where I render website and mobile development services </p>
+            <br>
+            <p>Programming has been a key part of my everyday activity, and I am aimed at bringing ideas into visual reality for the betterment of humanity and the community at large.</p>
+            <br>
+            <br>
+            <p>I assure you that you will be glad working with me in managing or bringing your online presence into reality.</p>
+            <br>
+            <p>I am current in my final year in my field of study (Computer Engineering).</p>
+            <br>
+            
+
+        </div>
+    </section>
+    <div id="services"></div>
+    <section class="services reveal">
+        <h1>Services</h1>
+        <h3>We offer the following services</h3>
+        <div class="service">
+            <div class="card">
+                <i class="fas fa-database"></i>
+                <h3>WEB DEVELOPMENT</h3>
+            </div>
+            <div class="card">
+                <i class="fab fa-html5"></i>
+                <h3>WEB DESIGN</h3>
+            </div>
+            <div class="card">
+                <i class="fas fa-mobile"></i>
+                <h3>MOBILE APP DEVELOPER</h3>
+            </div>
+            <div class="card">
+                <i class="fas fa-home"></i>
+                <h3>VENDOR</h3>
+            </div>
+            <div class="card">
+                <i class="fas fa-wrench"></i>
+                <h3>COMPUTER TECHNICIAN</h3>
+            </div>
+            <div class="card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>WEB DEV TUTORIAL</h3>
+            </div>
+        </div>
+    </section>
+    <div id="projects"></div>
+    <section class="projects reveal">
+        <h1>Recent Projects</h1>
+        <div class="project">
+            <div class="card one">
+                <a href="https://www.toplearnerbooks.com" target="_blank"><img src="./image/top.png" alt=""></a>
+            </div>
+            <div class="card three">
+                <a href="https://www.stepuptrusted.com" target="_blank"><img src="./image/stepup.png" alt=""></a>
+            </div>
+        </div>
+        <div class="project-two">
+            <div class="card four">
+                <a href="https://www.stepuptrusted.com/ecom"  target="_blank"><img src="./image/ecom.jpg" alt=""></a>
+            </div>
+            <div class="card two">
+                <a href="https://www.denurx.com"  target="_blank"><img src="./image/stepup3.jpg" alt=""></a>
+            </div>
+        </div>
+    </section>
+    <div id="graphics"></div>
+    <section class="graphics reveal">
+        <h1>My Graphic Works</h1>
+        <h3>Get a feel of real time graphics</h3>
+        <div class="graphic">
+            <div class="card">
+                <img class="image" src="image/graphic1.jpg" alt="" >
+            </div>
+            <div class="card">
+                <img class="image" src="image/graphic2.jpg" alt="" >
+            </div>
+            <div class="card">
+                <img class="image" src="image/graphic3.jpg" alt="" >
+                <h3>MOBILE APP DEVELOPER</h3>
+            </div>
+            <div class="card">
+                <img class="image" src="image/graphic4.jpg" alt="" >
+                <h3>MOBILE APP DEVELOPER</h3>
+            </div>
+            
+        </div>
+    </section>
+    <div id="contacts"></div>
+    <section class="contacts reveal">
+        <h1>Contact Me</h1>
+        <div class="contact">
+            <div class="contact-info">
+                <div class="circle">
+                    <a href="tel:+2348076091961" target="_blank"><i class="fas fa-phone"></i></a>
+                </div>
+                <h2>Contact</h2>
+                <br><br>
+                <p>+2348023144805</p>
+            </div>
+            <div class="contact-info">
+                <div class="circle">
+                    <a href="https://wa.me/2348023144805"></a><i class="fab fa-whatsapp" target="_blank"></i>
+                </div>
+                <h2>Whatsapp</h2>
+                <br><br>
+                <p>+2348023144805</p>
+            </div>
+            <h3></h3>
+            <div class="contact-info">
+                <div class="circle">
+                    <a href="https://twitter.com/VictorEtad?t=4MUHFSkPVebGJtiF3iFtoA&s=08"><i class="fab fa-twitter" target="_blank"></i></a>
+                </div>
+                <h2>Twitter</h2>
+                <br><br>
+                <p>@VictorEtad</p>
+            </div>
+            <div class="contact-info">
+                <div class="circle">
+                    <a href="mailto: victoretad@gmail.com?subject = Feedback&body = Message"></a><i class="fas fa-envelope" target="_blank"></i>
+                </div>
+                <h2>Email</h2>
+                <br><br>
+                <p>victoretad@gmail.com</p>
+            </div>
+        </div>
+        <div class="contact-footer">
+            <div class="left">
+                <img src="./image/profile3.png" alt="">
+            </div>
+            <div class="right">
+                <form action="" name="form" method="post" onsubmit="return validation()">
+                    <div class="error">Please Fill The Form Before Submission</div>
+                    <br>
+                    <input class="name" type="text" name="name" placeholder="Your Name">
+                   <br>
+                    <input class="email" type="text" name="email" placeholder="Your Email">
+                   <br>
+                   <input class="phone" type="text" name="phone" placeholder="Your Phone/Whatsapp">
+                   <br>
+                    <input class="subject" type="text" name="subject" placeholder="Subject">
+                   <br>
+                    <textarea class="message" name="message" id="" cols="30" rows="10" placeholder="Message"></textarea>
+                    <button class="submit" type="submit" name="submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+        
+    <script src="script.js"></script>
+<?php
+    if(isset($_POST['submit']))
+{
+    
+    $name =$_POST['name'];
+    $email =$_POST['email'];
+    $subject =$_POST['subject'];
+    $message =$_POST['message'];
+    $phone =$_POST['phone'];
+    date_default_timezone_set('Africa/Lagos');
+    $Date_time = date('m/d/Y h:i:s a', time());
+
+    if($email=='' || $name=='' || $phone=='' || $message=='')
+    {
+        $_SESSION['field'] = "<div class='error-two text-center'>Please fill in all the fields appropriately, in order to register</div>";
+        ?>
+             <script type="text/javascript">window.location.href="index.php";</script>;
+         <?php 
+    }
+    else
+    {
+        $receiver = "victoretad@gmail.com";
+        $body = "$message";
+        $sender = "$email";
+        if(mail($receiver, $subject, $body, $sender)){
+            $sent = "Email sent successfully to $receiver";
+            $_SESSION['sent'] = "<div class='success'>$sent</div>";
+            ?>
+                 <script type="text/javascript">window.location.href="index.php";</script>;
+             <?php 
+        }else{
+            
+        }
+        
+         
+
+    }
+}
+
+?>
+
+
+
+    </section>
+    <footer>
+        <div class="content">
+            <div class="top">
+                <!-- <a href="#"><i class="fab fa-facebook-f"></i></a> -->
+                <a href="https://twitter.com/VictorEtad?t=IX_OLrZCvAIH3JZWh42-NQ&s=08" target="_blank"><i class="fab fa-twitter"></i></a>
+                <!-- <a href="#"><i class="fab fa-instagram"></i></a> -->
+                <a href="https://www.linkedin.com/in/victor-etaduovie" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <div class="bottom">
+                <span class="copyright_text">Copyright © 2021 <a href="#">Victor Etaduovie.</a>All rights reserved</span>
+            </div>
+        </div>
+        <a href="https://wa.me/+2348023144805" target="_blank" class="goto-top scroll-link">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+    </footer>
+</body>
+</html>
