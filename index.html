@@ -1,0 +1,3535 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>Victor Etaduovie — Portfolio</title>
+    <meta
+      name="description"
+      content="Victor Etaduovie — Full-stack developer (Laravel, PHP, MySQL, Flutter). Portfolio header & hero."
+    />
+    <!-- Bootstrap 5 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Galaxy canvas -->
+    <canvas id="galaxy-canvas" aria-hidden="true"></canvas>
+
+    <!-- Custom cursor -->
+    <div id="cursorDot" class="cursor-dot" aria-hidden="true"></div>
+
+    <!-- Header -->
+    <header class="site-header container-fluid">
+      <a class="brand" href="#" aria-label="Victor Etaduovie — Home">
+        <div class="logo">VE</div>
+        <div>
+          <div class="brand_name">Victor Etaduovie</div>
+          <div class="meta">Full-Stack Developer</div>
+        </div>
+      </a>
+
+      <div class="nav-wrap">
+        <nav
+          class="d-none d-md-flex align-items-center me-3"
+          aria-label="Primary navigation"
+        >
+          <a class="nav-link" href="#projects">Work</a>
+          <a class="nav-link" href="#case-studies">Case Studies</a>
+          <a class="nav-link" href="#blog">Blog</a>
+          <a class="nav-link" href="#contact">Contact</a>
+        </nav>
+
+        <div class="d-none d-md-flex d-flex align-items-center">
+          <a href="#projects" class="btn btn-sm btn-outline me-2"
+            >View my work</a
+          >
+          <!-- Replace '#' with your CV file link or a hosted URL -->
+          <a
+            href="#"
+            id="downloadCv"
+            class="btn btn-sm btn-primary me-2"
+            download
+            >Download CV</a
+          >
+        </div>
+        <!-- Mobile toggle -->
+        <button
+          class="btn btn-link d-md-none ms-1"
+          id="mobileToggle"
+          aria-label="Open navigation"
+          style="color: var(--muted); font-size: 22px"
+        >
+          ☰
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile menu (inserted into DOM) -->
+    <nav id="mobileMenu" class="mobile-menu d-md-none" aria-hidden="true">
+      <div class="mobile-menu-inner">
+        <a class="mobile-link" href="#projects">Work</a>
+        <a class="mobile-link" href="#case-studies">Case Studies</a>
+        <a class="mobile-link" href="#blog">Blog</a>
+        <a class="mobile-link" href="#contact">Contact</a>
+        <a
+          class="mobile-link btn btn-sm btn-outline mt-2"
+          href="#projects"
+          role="button"
+          >View my work</a
+        >
+        <a
+          class="mobile-link btn btn-sm btn-primary mt-2"
+          href="#"
+          id="mobileDownloadCv"
+          role="button"
+          download
+          >Download CV</a
+        >
+      </div>
+    </nav>
+
+    <!-- Hero -->
+    <main class="hero" role="main">
+      <div class="hero-inner container">
+        <!-- Left: hero card -->
+        <section class="hero-card" aria-labelledby="hero-title">
+          <div class="eyebrow">
+            Hello — I'm available for remote roles & freelance
+          </div>
+
+          <h1 id="hero-title" class="title" aria-live="polite">
+            <span id="typewriterName"></span>
+            <span
+              id="nameCursor"
+              style="
+                display: inline-block;
+                margin-left: 8px;
+                vertical-align: middle;
+              "
+            ></span>
+          </h1>
+
+          <p class="subtitle"><span id="typewriterSubtitle"></span></p>
+
+          <div class="meta" role="list" aria-label="Key skills">
+            <div class="skill-tag" role="listitem">Laravel • PHP • MySQL</div>
+            <div class="skill-tag" role="listitem">Flutter • Dart</div>
+            <div class="skill-tag" role="listitem">HTML • CSS • JS</div>
+            <div class="skill-tag" role="listitem">
+              Bootstrap • AJAX • jQuery
+            </div>
+          </div>
+
+          <div class="ctas" role="group" aria-label="Primary calls to action">
+            <a href="#projects" class="btn btn-primary">View my work</a>
+            <a href="#" class="btn btn-outline" id="ctaDownload">Download CV</a>
+          </div>
+
+          <p style="margin-top: 16px; color: var(--muted); font-size: 13px">
+            I design and ship robust web backends and polished cross-platform
+            mobile apps — performance, maintainability, and measurable outcomes.
+          </p>
+        </section>
+
+        <!-- Right: interactive console -->
+        <aside class="panel" aria-labelledby="panel-title">
+          <h3 id="panel-title">Interactive Console</h3>
+          <div style="font-size: 13px; color: var(--muted); margin-bottom: 6px">
+            Type a command and press <span class="chip">Enter</span>. Try
+            <span class="chip">help</span>, <span class="chip">skills</span>,
+            <span class="chip">projects</span>, <span class="chip">cv</span>,
+            <span class="chip">contact</span>.
+          </div>
+
+          <div
+            class="prompt"
+            id="prompt"
+            tabindex="0"
+            role="region"
+            aria-label="Portfolio console output"
+          >
+            <div class="line">
+              Welcome. Type <span style="color: var(--accent)">help</span> to
+              get started.
+            </div>
+          </div>
+
+          <div class="input-row" style="margin-top: auto">
+            <div class="chip">victor@portfolio:~$</div>
+            <input
+              id="cmdInput"
+              class="input"
+              placeholder="Type command (e.g., about)"
+              aria-label="Console input"
+            />
+            <button id="runBtn" class="btn btn-sm btn-outline">Run</button>
+          </div>
+        </aside>
+      </div>
+
+      <div class="watermark">Victor Etaduovie</div>
+    </main>
+
+    <!-- Placeholder anchors for navigation -->
+    <div id="projects"></div>
+    <div id="case-studies"></div>
+    <div id="blog"></div>
+    <div id="contact"></div>
+
+    <!-- ========== ABOUT (continuous) ========== -->
+    <section
+      id="about-section"
+      class="ve-section about-continuous"
+      aria-labelledby="about-h1"
+    >
+      <div class="container">
+        <div class="about-inner">
+          <div class="about-left">
+            <div class="code-tag">&lt;about&gt;</div>
+            <h2 id="about-h1" class="ve-h2">About — Short &amp; Long</h2>
+
+            <p class="about-short">
+              <strong>Short:</strong> I build production-grade web backends and
+              cross-platform mobile apps focused on performance, security and
+              measurable business outcomes.
+            </p>
+
+            <div class="about-long-wrap">
+              <p class="about-long-preview">
+                <strong>Long (preview):</strong> I architect and ship scalable
+                Laravel backends (APIs, queues, payment flows) and robust
+                Flutter apps with offline-first sync. I focus on maintainable
+                code, CI, and measurable impact — from database tuning and
+                caching to polished UX.
+              </p>
+
+              <div
+                id="about-long-more"
+                class="about-long-more"
+                aria-hidden="true"
+              >
+                <p>
+                  My typical responsibilities include system design (DB schema,
+                  indexing), API design (REST, auth tokens), payment workflows
+                  (Stripe webhooks & idempotency), background processing (queues
+                  & workers), and mobile sync strategies (sqflite, delta
+                  updates). I also do frontend polish using Bootstrap, AJAX and
+                  modern JS patterns.
+                </p>
+                <p>
+                  I love writing clear APIs, improving performance, and shipping
+                  features that move business metrics. By grace — I aim to do
+                  exceptional, measurable work.
+                </p>
+              </div>
+
+              <button
+                id="about-toggle"
+                class="ve-btn ve-btn-link"
+                aria-expanded="false"
+                aria-controls="about-long-more"
+              >
+                Read more
+              </button>
+            </div>
+
+            <div class="about-metrics">
+              <div class="metric">
+                <div class="m-num">4</div>
+                <div class="m-label">Years</div>
+              </div>
+              <div class="metric">
+                <div class="m-num">6+</div>
+                <div class="m-label">Projects</div>
+              </div>
+              <!-- <div class="metric">
+                <div class="m-num">100k+</div>
+                <div class="m-label">Users</div>
+              </div> -->
+            </div>
+          </div>
+
+          <div class="about-right">
+            <!-- quick tech matrix (replace icons with logos later if desired) -->
+            <div class="matrix code-tag">&lt;tech-matrix&gt;</div>
+            <div class="matrix-grid">
+              <div class="matrix-item">
+                <strong>Laravel</strong><span>Expert</span>
+              </div>
+              <div class="matrix-item">
+                <strong>PHP</strong><span>Expert</span>
+              </div>
+              <div class="matrix-item">
+                <strong>MySQL</strong><span>Advanced</span>
+              </div>
+              <div class="matrix-item">
+                <strong>Flutter</strong><span>Advanced</span>
+              </div>
+              <div class="matrix-item">
+                <strong>HTML/CSS/JS</strong><span>Advanced</span>
+              </div>
+              <div class="matrix-item">
+                <strong>Bootstrap / AJAX</strong><span>Advanced</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="services-section"
+      class="ve-section services-section"
+      aria-labelledby="services-h"
+    >
+      <div class="container">
+        <div class="code-tag">&lt;services&gt;</div>
+        <h2 id="services-h" class="ve-h2">
+          Professional Services — Web & Mobile
+        </h2>
+        <p class="lead" style="color: rgba(232, 240, 255, 0.82)">
+          Comprehensive services across web & mobile: architecture, apps, APIs,
+          payments, performance and production support. Click any card to see
+          details & request a quote.
+        </p>
+
+        <!-- Controls (optional) -->
+        <div class="services-controls">
+          <button class="svc-filter active" data-filter="all">All</button>
+          <button class="svc-filter" data-filter="web">Web</button>
+          <button class="svc-filter" data-filter="mobile">Mobile</button>
+          <button class="svc-filter" data-filter="infra">Infrastructure</button>
+        </div>
+
+        <!-- Grid -->
+        <div class="services-grid" role="list" aria-label="Services list">
+          <!-- Service card template: duplicate/change as needed -->
+          <article
+            class="svc-card"
+            role="listitem"
+            tabindex="0"
+            data-category="web"
+            data-service="Web Application Development"
+            data-long="Full-stack web apps using Laravel/PHP, secure REST APIs, responsive frontends with Bootstrap, and production deployment."
+          >
+            <div class="svc-deco"></div>
+            <div class="svc-icon" aria-hidden="true">
+              <!-- simple SVG -->
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none">
+                <path
+                  d="M3 7h18M3 12h18M3 17h18"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="svc-body">
+              <h3 class="svc-title">&lt;Web Application Development&gt;</h3>
+              <p class="svc-short">
+                Robust, maintainable PHP/Laravel backends + polished responsive
+                frontends — built for scale and security.
+              </p>
+            </div>
+            <div class="svc-footer">
+              <a class="svc-cta" href="#contact-section" data-action="quote"
+                >Request quote</a
+              >
+              <button
+                class="svc-more"
+                type="button"
+                aria-label="More about Web Application Development"
+              >
+                Details
+              </button>
+            </div>
+          </article>
+
+          <article
+            class="svc-card"
+            role="listitem"
+            tabindex="0"
+            data-category="mobile"
+            data-service="Mobile App Development"
+            data-long="Cross-platform Flutter apps with offline-first capabilities, background sync, and native integrations."
+          >
+            <div class="svc-deco"></div>
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none">
+                <rect
+                  x="7"
+                  y="3"
+                  width="10"
+                  height="18"
+                  rx="2"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+              </svg>
+            </div>
+            <div class="svc-body">
+              <h3 class="svc-title">&lt;Mobile App Development&gt;</h3>
+              <p class="svc-short">
+                Cross-platform Flutter apps with smooth UX, offline sync, and
+                efficient media caching.
+              </p>
+            </div>
+            <div class="svc-footer">
+              <a class="svc-cta" href="#contact-section" data-action="quote"
+                >Request quote</a
+              >
+              <button
+                class="svc-more"
+                type="button"
+                aria-label="More about Mobile App Development"
+              >
+                Details
+              </button>
+            </div>
+          </article>
+
+          <article
+            class="svc-card"
+            role="listitem"
+            tabindex="0"
+            data-category="web"
+            data-service="API Design & Integration"
+            data-long="Design and implement RESTful APIs, authentication (Sanctum / JWT), webhooks and third-party integrations (Paystack, OAuth)."
+          >
+            <div class="svc-deco"></div>
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none">
+                <path
+                  d="M8 7l8 5-8 5V7z"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="svc-body">
+              <h3 class="svc-title">&lt;API Design & Integration&gt;</h3>
+              <p class="svc-short">
+                Secure, versioned APIs with clear contracts and reliable
+                webhooks for production systems.
+              </p>
+            </div>
+            <div class="svc-footer">
+              <a class="svc-cta" href="#contact-section" data-action="quote"
+                >Request quote</a
+              >
+              <button
+                class="svc-more"
+                type="button"
+                aria-label="More about API Design"
+              >
+                Details
+              </button>
+            </div>
+          </article>
+
+          <article
+            class="svc-card"
+            role="listitem"
+            tabindex="0"
+            data-category="webdev"
+            data-service="WordPress Development"
+            data-long="Custom WordPress themes and plugins, headless WordPress with REST API, performance optimization, and secure deployment."
+          >
+            <div class="svc-deco"></div>
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none">
+                <path
+                  d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20Zm0 1.5a8.5 8.5 0 0 1 7.4 12.6L13.7 5.4a8.3 8.3 0 0 0-1.7-.2Zm-1.8.3 4.9 13.7 1.7-4.7c.2-.5.3-1.1.3-1.7 0-1.2-.4-2.3-1.2-3.3-.6-.7-.9-1.6-.9-2.6 0-.4 0-.8.1-1.2-.6-.2-1.3-.3-1.9-.3-1.1 0-2.1.3-3 .8Zm-2.7 1A8.4 8.4 0 0 0 3.6 12c0 3.3 2 6.2 4.8 7.5l-2.9-8a5 5 0 0 1 .1-.4c.1-.3.2-.6.3-.8Zm6.3 15.2A8.4 8.4 0 0 1 3.6 12a8.6 8.6 0 0 1 .4-2.5l3.8 10.4a8.4 8.4 0 0 0 2.7.8Z"
+                  stroke="currentColor"
+                  stroke-width="1.3"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="svc-body">
+              <h3 class="svc-title">&lt;WordPress Development&gt;</h3>
+              <p class="svc-short">
+                Custom WordPress themes, plugins, and full-site builds.
+                Optimized for speed, SEO, and seamless content management.
+              </p>
+            </div>
+            <div class="svc-footer">
+              <a class="svc-cta" href="#contact-section" data-action="quote">
+                Request quote
+              </a>
+              <button
+                class="svc-more"
+                type="button"
+                aria-label="More about WordPress Development"
+              >
+                Details
+              </button>
+            </div>
+          </article>
+
+          <article
+            class="svc-card"
+            role="listitem"
+            tabindex="0"
+            data-category="web"
+            data-service="E-commerce Solutions"
+            data-long="Design & build scalable e-commerce platforms, secure payment flows (Stripe), carts, order processing and analytics."
+          >
+            <div class="svc-deco"></div>
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none">
+                <path
+                  d="M3 3h18v4H3zM5 11h14v8H5z"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+              </svg>
+            </div>
+            <div class="svc-body">
+              <h3 class="svc-title">&lt;E-commerce Solutions&gt;</h3>
+              <p class="svc-short">
+                Payment integration, inventory, promotions and
+                conversion-focused checkout flows.
+              </p>
+            </div>
+            <div class="svc-footer">
+              <a class="svc-cta" href="#contact-section" data-action="quote"
+                >Request quote</a
+              >
+              <button
+                class="svc-more"
+                type="button"
+                aria-label="More about E-commerce"
+              >
+                Details
+              </button>
+            </div>
+          </article>
+
+          <article
+            class="svc-card"
+            role="listitem"
+            tabindex="0"
+            data-category="web"
+            data-service="Performance & Optimization"
+            data-long="Page speed, SQL tuning, Redis/OPcache, image optimization, caching layers and Lighthouse improvements."
+          >
+            <div class="svc-deco"></div>
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none">
+                <path
+                  d="M3 12h3l3 8 4-16 3 8h4"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="svc-body">
+              <h3 class="svc-title">&lt;Performance & Optimization&gt;</h3>
+              <p class="svc-short">
+                Reduce load times, optimize queries, CDN strategy and measurable
+                conversion wins.
+              </p>
+            </div>
+            <div class="svc-footer">
+              <a class="svc-cta" href="#contact-section" data-action="quote"
+                >Request quote</a
+              >
+              <button
+                class="svc-more"
+                type="button"
+                aria-label="More about Performance"
+              >
+                Details
+              </button>
+            </div>
+          </article>
+          <article
+            class="svc-card"
+            role="listitem"
+            tabindex="0"
+            data-category="web"
+            data-service="SEO & Search Optimization"
+            data-long="On-page & technical SEO (meta tags, structured data, sitemaps, robots), keyword research, content optimization, backlink auditing, local SEO and performance tweaks to improve organic visibility and rankings."
+          >
+            <div class="svc-deco"></div>
+            <div class="svc-icon" aria-hidden="true">
+              <!-- magnifying glass / search icon -->
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none">
+                <circle
+                  cx="11"
+                  cy="11"
+                  r="6"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                ></circle>
+                <path
+                  d="M21 21l-4.35-4.35"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                ></path>
+              </svg>
+            </div>
+            <div class="svc-body">
+              <h3 class="svc-title">&lt;SEO &amp; Search Optimization&gt;</h3>
+              <p class="svc-short">
+                Improve organic rankings with technical fixes, content & keyword
+                optimisation, and local/search engine best practices.
+              </p>
+            </div>
+            <div class="svc-footer">
+              <a class="svc-cta" href="#contact-section" data-action="quote"
+                >Request quote</a
+              >
+              <button
+                class="svc-more"
+                type="button"
+                aria-label="More about SEO & Search Optimization"
+              >
+                Details
+              </button>
+            </div>
+          </article>
+          <article
+            class="svc-card"
+            role="listitem"
+            tabindex="0"
+            data-category="web"
+            data-service="Website Audit & Performance Review"
+            data-long="Comprehensive audits covering technical SEO, page speed, security, accessibility, and UX. You receive a prioritized action list, estimated effort, and measurable KPIs to improve traffic, conversions and reliability."
+          >
+            <div class="svc-deco"></div>
+            <div class="svc-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none">
+                <path
+                  d="M3 13h6l3 6 6-10 3 4"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </div>
+            <div class="svc-body">
+              <h3 class="svc-title">
+                &lt;Website Audit &amp; Performance Review&gt;
+              </h3>
+              <p class="svc-short">
+                Technical SEO, speed, security & accessibility audit with a
+                prioritized improvement plan and measured KPIs.
+              </p>
+            </div>
+            <div class="svc-footer">
+              <a class="svc-cta" href="#contact-section" data-action="quote"
+                >Request quote</a
+              >
+              <button
+                class="svc-more"
+                type="button"
+                aria-label="More about Audit"
+              >
+                Details
+              </button>
+            </div>
+          </article>
+
+          <article
+            class="svc-card"
+            role="listitem"
+            tabindex="0"
+            data-category="infra"
+            data-service="DevOps & CI/CD"
+            data-long="CI pipelines, automated tests, Docker, deployment automation (Forge, DigitalOcean, GitHub Actions) and monitoring."
+          >
+            <div class="svc-deco"></div>
+            <div class="svc-icon">
+              <svg viewBox="0 0 24 24" width="36" height="36" fill="none">
+                <path
+                  d="M12 2v20M2 12h20"
+                  stroke="currentColor"
+                  stroke-width="1.6"
+                />
+              </svg>
+            </div>
+            <div class="svc-body">
+              <h3 class="svc-title">&lt;DevOps & CI/CD&gt;</h3>
+              <p class="svc-short">
+                Automated pipelines, containerization and reliable deployments
+                to keep your site stable and fast.
+              </p>
+            </div>
+            <div class="svc-footer">
+              <a class="svc-cta" href="#contact-section" data-action="quote"
+                >Request quote</a
+              >
+              <button
+                class="svc-more"
+                type="button"
+                aria-label="More about DevOps"
+              >
+                Details
+              </button>
+            </div>
+          </article>
+
+          <!-- Add more service cards here (Accessibility, Security, PWA, etc.) -->
+        </div>
+
+        <!-- DETAILS PANEL (reused for any service) -->
+        <div
+          id="svcDetails"
+          class="svc-details"
+          aria-hidden="true"
+          role="dialog"
+          aria-modal="true"
+        >
+          <div class="svc-backdrop" data-close></div>
+          <div class="svc-panel" role="document">
+            <header class="svc-panel-head">
+              <h3 id="svcTitle" class="svc-panel-title"></h3>
+              <button class="svc-close" aria-label="Close details" data-close>
+                ✕
+              </button>
+            </header>
+            <div class="svc-panel-body">
+              <p id="svcLong" class="svc-panel-text"></p>
+              <div class="svc-panel-meta">
+                <strong>Typical stack:</strong>
+                <span id="svcStack">Laravel, PHP, MySQL, Flutter</span>
+              </div>
+
+              <div class="svc-panel-cta">
+                <a
+                  href="#contact-section"
+                  class="btn btn-primary svc-contact-now"
+                  >Request a quote</a
+                >
+                <button class="btn btn-outline svc-case" id="svcCaseBtn">
+                  View related project
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WORK (with diagonal animated background, book flip & phone mirror) ========== -->
+    <!-- ========== WORK (with diagonal animated background, book flip & phone mirror) ========== -->
+    <section
+      id="work-section"
+      class="ve-section work-continuous"
+      aria-labelledby="work-h1"
+    >
+      <!-- animated diagonal image field (BACKGROUND) -->
+      <div id="diag-bg" class="diag-bg" aria-hidden="true"></div>
+
+      <div class="container">
+        <div class="work-inner">
+          <div class="work-center">
+            <div class="code-tag">&lt;work / projects&gt;</div>
+            <h2 id="work-h1" class="ve-h2">Selected Work — Book & Pages</h2>
+            <p class="lead">
+              Scroll to flip the book. Each page shows a project snapshot. The
+              phone on the right mirrors the active page.
+            </p>
+
+            <!-- Book container (3D flipping pages) -->
+
+            <div id="book" class="book">
+              <!-- Project 1 -->
+              <div
+                class="page"
+                data-title="Horizon Segment LLC"
+                data-desc="Web Development, SEO, Performance Optimization"
+                data-image="assets/horizonsegment.png"
+                data-url="https://denurx.com"
+              >
+                <div class="page-inner">
+                  <div
+                    class="page-thumb"
+                    style="background-image: url('assets/horizonsegment.png')"
+                  ></div>
+                  <div class="page-copy">
+                    <h3>&lt;Horizon Segment LLC&gt;</h3>
+                    <p>
+                      Full website redevelopment for an industrial safety and
+                      renewable energy company. Built a dynamic product system,
+                      optimized SEO, improved page speed, and refined UI/UX for
+                      stronger brand visibility.
+                    </p>
+                    <br /><br />
+
+                    <a
+                      href="https://horizonsegment.com"
+                      class="svc-cta"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Website →
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Project 2 -->
+              <div
+                class="page"
+                data-title="Denurx Technology"
+                data-desc="JavaScript, PHP"
+                data-image="assets/denurx.jpg"
+              >
+                <div class="page-inner">
+                  <div
+                    class="page-thumb"
+                    style="background-image: url('assets/denurx.jpg')"
+                  ></div>
+                  <div class="page-copy">
+                    <h3>&lt;Denurx Technology&gt;</h3>
+                    <p>
+                      A digital health initiative focused on connecting
+                      professionals and streamlining essential services through
+                      a secure and user-friendly online platform.
+                    </p>
+
+                    <!-- <a
+                      href="https://denurx.com"
+                      class="btn btn-primary"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      View Website →
+                    </a> -->
+                  </div>
+                </div>
+              </div>
+              <!-- <div
+                class="page"
+                data-title="GGM Mobile App"
+                data-desc="Offline-first app"
+                data-image="assets/gm.png"
+              >
+                <div class="page-inner">
+                  <div
+                    class="page-thumb"
+                    style="background-image: url('assets/ggm.png')"
+                  ></div>
+                  <div class="page-copy">
+                    <h3>&lt;Offline-First Mobile App&gt;</h3>
+                    <p>Developed a full-featured church app enabling users to view church updates, share testimonies, read the Bible, and stream sermons or worship videos. Designed for seamless engagement and spiritual connection within the church community..</p>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+
+            <div class="book-controls" aria-hidden="true">
+              <div class="page-index">
+                <button
+                  id="prevPage"
+                  class="book-btn"
+                  aria-label="Previous page"
+                >
+                  &larr;
+                </button>
+                <span id="curPage">1</span>/<span id="totalPages">3</span>
+                <button id="nextPage" class="book-btn" aria-label="Next page">
+                  &rarr;
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- phone mockup that mirrors the book (hidden on small screens) -->
+          <aside class="work-side">
+            <div class="phone-mock" aria-hidden="true">
+              <div class="phone-frame">
+                <div id="phone-screen" class="phone-screen">
+                  <!-- cloned page content will be injected here to mirror the active page -->
+                </div>
+              </div>
+              <div class="phone-caption">Live preview</div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+    <section
+      id="projects-section"
+      class="ve-section projects-section"
+      aria-labelledby="projects-h"
+    >
+      <div class="container">
+        <div class="code-tag">&lt;projects&gt;</div>
+        <h2 id="projects-h" class="ve-h2">Selected Projects — Personal Work</h2>
+        <p class="lead" style="color: rgba(232, 240, 255, 0.78)">
+          Three polished projects that demonstrate backend scale, frontend
+          polish and mobile craftsmanship. Click any card to view details,
+          screenshots, demo and repo.
+        </p>
+
+        <div class="projects-grid" role="list" aria-label="Projects gallery">
+          <!-- Project 1 -->
+          <article
+            class="proj-card"
+            role="listitem"
+            tabindex="0"
+            data-id="0"
+            data-title="E-Commerce Platform"
+            data-desc="PHP + MySQL + Paystack — checkout optimisation, Invoice generation and product delivery"
+            data-stack="PHP, MySQL, Redis, Paystack"
+            data-images="assets/ecom.jpg"
+            data-demo="#"
+            data-repo="https://github.com/VictorEtaduovie/ecom"
+          >
+            <div
+              class="proj-media"
+              style="background-image: url('assets/ecom.jpg')"
+              aria-hidden="true"
+            ></div>
+            <div class="proj-body">
+              <h3 class="proj-title">&lt;E-Commerce Platform&gt;</h3>
+              <p class="proj-short">
+                Checkout latency reduction, secure payment flows and scale.
+              </p>
+              <div class="proj-tags"><span>PHP</span><span>Paystack</span></div>
+              <button
+                class="proj-cta"
+                type="button"
+                aria-label="View E-Commerce Platform details"
+              >
+                View project
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article
+            class="proj-card"
+            role="listitem"
+            tabindex="0"
+            data-id="1"
+            data-title="Stepup Trusted Funding"
+            data-desc="Step Up Trusted is a digital platform designed to facilitate users' participation, engagement, and growth. Through a structured online system, it integrates account management, secure transactions, and a reward-based model that encourages active involvement and network interaction. The system emphasizes transparency, user accessibility, and efficiency while maintaining a simplified experience for participants.."
+            data-stack="HTML, CSS, Javascript, Paystack,"
+            data-images="assets/stepup.png"
+            data-demo="#"
+            data-repo="#"
+          >
+            <div
+              class="proj-media"
+              style="background-image: url('assets/stepup.png')"
+              aria-hidden="true"
+            ></div>
+            <div class="proj-body">
+              <h3 class="proj-title">&lt;Stepup Trusted&gt;</h3>
+              <p class="proj-short">Referral-based earning Platform.</p>
+              <div class="proj-tags">
+                <span>Javascript</span><span>PHP</span>
+              </div>
+              <button
+                class="proj-cta"
+                type="button"
+                aria-label="Referral-based earning Platform."
+              >
+                View project
+              </button>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article
+            class="proj-card"
+            role="listitem"
+            tabindex="0"
+            data-id="2"
+            data-title="Bok Sales Platform"
+            data-desc="AJAX-driven Book Sakes platform."
+            data-stack="HTML, CSS, AJAX, PHP, MySQL"
+            data-images="assets/top.png"
+            data-demo="#"
+            data-repo="https://github.com/VictorEtaduovie/toplearnerbooks"
+          >
+            <div
+              class="proj-media"
+              style="background-image: url('assets/top.png')"
+              aria-hidden="true"
+            ></div>
+            <div class="proj-body">
+              <h3 class="proj-title">&lt;Book Sales Platform&gt;</h3>
+              <p class="proj-short">
+                Manage book sales with integrated payment gateways, streamlined
+                checkout, and secure digital downloads.
+              </p>
+              <div class="proj-tags">
+                <span>HTML</span><span>CSS</span><span>AJAX</span
+                ><span>PHP</span>
+              </div>
+              <button
+                class="proj-cta"
+                type="button"
+                aria-label="View Book Sales Website"
+              >
+                View project
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- Project Modal (single modal used for all projects) -->
+      <div
+        id="projectModal"
+        class="project-modal"
+        aria-hidden="true"
+        role="dialog"
+        aria-labelledby="modalTitle"
+        aria-modal="true"
+      >
+        <div class="pm-backdrop" data-close></div>
+        <div class="pm-dialog" role="document">
+          <header class="pm-header">
+            <div>
+              <div id="modalTags" class="pm-tags"></div>
+              <h3 id="modalTitle" class="pm-title"></h3>
+              <p id="modalDesc" class="pm-desc"></p>
+            </div>
+            <button
+              class="pm-close"
+              aria-label="Close project details"
+              data-close
+            >
+              ✕
+            </button>
+          </header>
+
+          <div class="pm-body">
+            <div class="pm-carousel" id="pmCarousel" aria-live="polite">
+              <button class="car-left" aria-label="Previous image">‹</button>
+              <div class="car-track" id="carTrack"></div>
+              <button class="car-right" aria-label="Next image">›</button>
+            </div>
+
+            <div class="pm-meta">
+              <div class="pm-stack">
+                <strong>Stack:</strong> <span id="modalStack"></span>
+              </div>
+              <div class="pm-links">
+                <a
+                  id="modalDemo"
+                  class="btn btn-sm pm-btn"
+                  target="_blank"
+                  rel="noopener"
+                  >Live demo</a
+                >
+                <a
+                  id="modalRepo"
+                  class="btn btn-sm pm-btn"
+                  target="_blank"
+                  rel="noopener"
+                  >Repository</a
+                >
+              </div>
+            </div>
+
+            <pre class="pm-code" id="modalCode">
+&lt;!-- Example snippet will appear here --&gt;</pre
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+    <section
+      id="contact-section"
+      class="ve-section contact-section"
+      aria-labelledby="contact-h"
+    >
+      <div class="container">
+        <div class="contact-grid">
+          <!-- LEFT: contact info -->
+          <div class="contact-info" aria-hidden="false">
+            <div class="code-tag">&lt;contact&gt;</div>
+            <h2 id="contact-h" class="ve-h2">Let’s Connect</h2>
+            <p class="lead" style="color: rgba(232, 240, 255, 0.82)">
+              If you have a project, a role or a freelance opportunity — drop a
+              short message below. I respond to serious enquiries quickly.
+            </p>
+
+            <div class="contact-cards">
+              <div class="card-mini">
+                <div class="card-title">&lt;email&gt;</div>
+                <div class="card-body">
+                  <a href="mailto:victoretad@gmail.com" id="contactEmail"
+                    >victoretad@gmail.com</a
+                  >
+                </div>
+              </div>
+
+              <div class="card-mini">
+                <div class="card-title">&lt;location&gt;</div>
+                <div class="card-body">Lagos, Nigeria — UTC+1</div>
+              </div>
+
+              <div class="card-mini">
+                <div class="card-title">&lt;availability&gt;</div>
+                <div class="card-body">Open to remote roles & freelance</div>
+              </div>
+            </div>
+
+            <div class="social-links" aria-label="Social links">
+              <!-- replace with your real profiles -->
+              <a
+                href="https://github.com/VictorEtaduovie"
+                class="social"
+                aria-label="GitHub"
+                >GitHub</a
+              >
+              <a
+                href="https://www.linkedin.com/in/victor-etaduovie"
+                class="social"
+                aria-label="LinkedIn"
+                >LinkedIn</a
+              >
+              <a
+                href="https://x.com/VictorEtad"
+                class="social"
+                aria-label="Twitter"
+                >X</a
+              >
+            </div>
+          </div>
+
+          <!-- RIGHT: AJAX form -->
+          <form
+            id="contactForm"
+            class="contact-form"
+            method="post"
+            novalidate
+            aria-describedby="contact-desc"
+          >
+            <div class="form-top">
+              <div class="form-title">&lt;message / send&gt;</div>
+              <div id="contact-desc" class="sr-only">
+                All fields marked * are required. This form sends a message via
+                AJAX.
+              </div>
+            </div>
+
+            <div class="form-row">
+              <label for="name" class="sr-only">Full name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                placeholder="Your name *"
+                required
+                autocomplete="name"
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="email" class="sr-only">Email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                placeholder="victoretad@gmail.com *"
+                required
+                autocomplete="email"
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="subject" class="sr-only">Subject</label>
+              <input
+                id="subject"
+                name="subject"
+                type="text"
+                placeholder="Project / subject"
+              />
+            </div>
+
+            <div class="form-row">
+              <label for="message" class="sr-only">Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows="6"
+                placeholder="Brief message — goals, budget, timeline (approx.) *"
+                required
+              ></textarea>
+            </div>
+
+            <!-- honeypot for simple bot filtering -->
+            <div
+              style="
+                position: absolute;
+                left: -9999px;
+                top: auto;
+                overflow: hidden;
+              "
+              aria-hidden="true"
+            >
+              <label
+                >Leave this field empty<input
+                  type="text"
+                  name="faxnumber"
+                  tabindex="-1"
+                  autocomplete="off"
+              /></label>
+            </div>
+
+            <div class="form-actions">
+              <button id="sendBtn" class="btn btn-primary" type="submit">
+                Send message
+              </button>
+              <button id="clearBtn" type="button" class="btn btn-outline">
+                Clear
+              </button>
+            </div>
+
+            <!-- status / toast -->
+            <div
+              id="formStatus"
+              class="form-status"
+              aria-live="polite"
+              aria-atomic="true"
+              hidden
+            >
+              <svg
+                class="status-check"
+                viewBox="0 0 24 24"
+                width="28"
+                height="28"
+                aria-hidden="true"
+              >
+                <path
+                  d="M20 6L9 17l-5-5"
+                  stroke="currentColor"
+                  stroke-width="2.6"
+                  fill="none"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+              <div class="status-text">
+                <strong>Message sent.</strong>
+                <div class="small">I'll reply within 48 hours.</div>
+              </div>
+            </div>
+
+            <!-- orbit ring (follows pointer over the form) -->
+            <div id="orbitRing" class="orbit-ring" aria-hidden="true"></div>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- FAB HTML: paste near end of <body> so it's above other content -->
+    <!-- ===== Floating Action Button (paste just before </body>) ===== -->
+    <div class="ve-fab-wrap" aria-hidden="false">
+      <button
+        id="veFab"
+        class="ve-fab"
+        aria-label="Quick contact actions"
+        aria-expanded="false"
+        title="Quick contact"
+      >
+        <!-- main plus icon -->
+        <svg
+          width="20"
+          height="20"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 5v14M5 12h14"
+            stroke="white"
+            stroke-width="2.2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+
+      <div id="veFabMenu" class="ve-fab-menu" role="menu" aria-hidden="true">
+        <a
+          class="ve-fab-item"
+          role="menuitem"
+          href="https://wa.me/PHONENUMBER"
+          target="_blank"
+          rel="noopener"
+          aria-label="Chat on WhatsApp"
+        >
+          <!-- WhatsApp SVG -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+            <path
+              d="M21 12.05A9 9 0 1 1 11.95 3"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M21 21l-4.35-1.35"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M16.5 14.5a2.5 2.5 0 0 1-3.5 0l-1.6-1.6"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+
+        <a
+          class="ve-fab-item"
+          role="menuitem"
+          href="https://linkedin.com/in/YOURPROFILE"
+          target="_blank"
+          rel="noopener"
+          aria-label="View LinkedIn"
+        >
+          <!-- LinkedIn SVG -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+            <rect
+              x="3"
+              y="3"
+              width="18"
+              height="18"
+              rx="2"
+              stroke="currentColor"
+              stroke-width="1.4"
+            />
+            <path
+              d="M7 9v7M7 7v.01M11 16v-4a1.5 1.5 0 0 1 3 0v4"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+
+        <a
+          class="ve-fab-item"
+          role="menuitem"
+          href="mailto:victoretad@gmail.com"
+          aria-label="Send an email"
+        >
+          <!-- Mail SVG -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+            <path
+              d="M3 8.5v7a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M21 8.5l-9 6-9-6"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+
+        <a
+          class="ve-fab-item"
+          role="menuitem"
+          href="tel:+1234567890"
+          aria-label="Call phone number"
+        >
+          <!-- Phone SVG -->
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 3.08 4.18 2 2 0 0 1 5 2h3a2 2 0 0 1 2 1.72c.12.95.36 1.88.72 2.78a2 2 0 0 1-.45 2.11L9.91 9.91a14.27 14.27 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.11-.45c.9.36 1.83.6 2.78.72A2 2 0 0 1 22 16.92z"
+              stroke="currentColor"
+              stroke-width="1.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- ====== Footer (paste just above </body>) ====== -->
+    <footer
+      id="site-footer"
+      class="ve-footer"
+      role="contentinfo"
+      aria-label="Footer"
+    >
+      <div class="footer-inner container">
+        <div class="footer-top">
+          <div class="footer-brand">
+            <div class="logo-mini">VE</div>
+            <div>
+              <div class="brand-name">Victor Etaduovie</div>
+              <div class="brand-sub">Full-Stack Developer — Web & Mobile</div>
+            </div>
+          </div>
+
+          <nav class="footer-nav" aria-label="Footer navigation">
+            <a href="#about-section">About</a>
+            <a href="#projects-section">Projects</a>
+            <a href="#services-section">Services</a>
+            <a href="#contact-section">Contact</a>
+          </nav>
+
+          <div class="footer-contact">
+            <a href="mailto:victoretad@gmail.com" id="footerEmail"
+              >&lt;victoretad@gmail.com&gt;</a
+            >
+            <div class="socials" aria-label="social links">
+              <a href="#" aria-label="GitHub" class="social-icon">
+                <!-- GitHub SVG -->
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <path
+                    d="M12 .5C5.73.5.9 5.33.9 11.6c0 4.75 3.07 8.77 7.32 10.19.54.1.74-.24.74-.52 0-.26-.01-1.13-.02-2.05-2.98.65-3.61-1.44-3.61-1.44-.49-1.25-1.2-1.58-1.2-1.58-.98-.67.07-.66.07-.66 1.08.08 1.65 1.11 1.65 1.11.96 1.64 2.52 1.17 3.14.9.1-.7.37-1.17.67-1.44-2.38-.27-4.88-1.19-4.88-5.28 0-1.17.42-2.12 1.11-2.87-.11-.28-.48-1.4.11-2.92 0 0 .9-.29 2.95 1.1a10.2 10.2 0 0 1 2.69-.36c.91 0 1.83.12 2.69.36 2.05-1.39 2.95-1.1 2.95-1.1.59 1.52.22 2.64.11 2.92.69.75 1.11 1.7 1.11 2.87 0 4.1-2.5 5.01-4.88 5.28.38.33.72.98.72 1.98 0 1.43-.01 2.58-.01 2.93 0 .29.2.63.75.52C20.03 20.36 23.1 16.34 23.1 11.6 23.1 5.33 18.27.5 12 .5z"
+                    stroke="currentColor"
+                    stroke-width="0.2"
+                  />
+                </svg>
+              </a>
+              <a href="#" aria-label="LinkedIn" class="social-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none">
+                  <path
+                    d="M4.98 3.5C3.88 3.5 3 4.4 3 5.5c0 1.11.88 2 1.98 2H5c1.1 0 2-.89 2-2 0-1.1-.9-2-2.02-2zM3.5 8.5h3v12h-3v-12zM9 8.5h2.88v1.65h.04c.4-.76 1.38-1.65 2.83-1.65 3.03 0 3.59 1.99 3.59 4.57v6.43h-3v-5.7c0-1.36-.02-3.11-1.9-3.11-1.9 0-2.19 1.48-2.19 3v5.81h-3v-12z"
+                    stroke="currentColor"
+                    stroke-width="0.2"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-mid">
+          <div class="footer-col">
+            <h4>&lt;services&gt;</h4>
+            <ul>
+              <li><a href="#services-section">Web & Mobile Apps</a></li>
+              <li><a href="#services-section">API Design</a></li>
+              <li><a href="#services-section">E-commerce</a></li>
+              <li><a href="#services-section">Performance</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>&lt;projects&gt;</h4>
+            <ul>
+              <li><a href="#projects-section">Featured Projects</a></li>
+              <li><a href="#projects-section">Case Studies</a></li>
+              <li><a href="#projects-section">Open-source</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-col">
+            <h4>&lt;contact&gt;</h4>
+            <ul>
+              <li>
+                <a href="mailto:victoretad@gmail.com">victoretad@gmail.com</a>
+              </li>
+              <li><a href="#contact-section">Contact form</a></li>
+              <li><a href="#">Availability</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-news">
+            <h4>&lt;newsletter / updates&gt;</h4>
+            <p class="small">
+              Get occasional updates — projects, releases and availability.
+            </p>
+            <form
+              id="footerSubscribe"
+              class="subscribe-form"
+              action="#"
+              method="POST"
+              novalidate
+            >
+              <label for="subEmail" class="sr-only">Email address</label>
+              <input
+                id="subEmail"
+                name="email"
+                type="email"
+                placeholder="victoretad@gmail.com"
+                required
+              />
+              <button type="submit" class="btn btn-sm btn-primary">
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="footer-bottom">
+          <div class="copy">
+            &copy; <span id="year"></span> Victor Etaduovie — All rights
+            reserved.
+          </div>
+          <div class="bottom-actions">
+            <a
+              href="#top"
+              id="backToTop"
+              class="back-top"
+              aria-label="Back to top"
+              >Back to top ↑</a
+            >
+            <div class="credit">
+              Built with &lt;code&gt; &middot; Designed by Victor
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Mobile Bottom Navigation (paste near end of <body>) -->
+    <nav
+      id="mobileBottomNav"
+      class="mobile-bottom-nav"
+      aria-label="Mobile navigation"
+    >
+      <button
+        class="mbn-item"
+        data-target="#about-section"
+        aria-label="About"
+        title="About"
+      >
+        <!-- About icon -->
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 2v4M6 6v10M18 6v10M6 20h12"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span class="mbn-label">About</span>
+      </button>
+
+      <button
+        class="mbn-item"
+        data-target="#projects-section"
+        aria-label="Projects"
+        title="Projects"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          aria-hidden="true"
+        >
+          <rect
+            x="3"
+            y="3"
+            width="18"
+            height="18"
+            rx="2"
+            stroke="currentColor"
+            stroke-width="1.6"
+          />
+        </svg>
+        <span class="mbn-label">Projects</span>
+      </button>
+
+      <button
+        class="mbn-item"
+        data-target="#services-section"
+        aria-label="Services"
+        title="Services"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M12 3l8 4v6l-8 4-8-4V7l8-4z"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span class="mbn-label">Services</span>
+      </button>
+
+      <button
+        class="mbn-item"
+        data-target="#contact-section"
+        aria-label="Contact"
+        title="Contact"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M21 8V7l-3 2-3-2-3 2-3-2-3 2v1"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span class="mbn-label">Contact</span>
+      </button>
+
+      <button
+        class="mbn-item"
+        data-target="top"
+        aria-label="Back to top"
+        title="Top"
+      >
+        <svg
+          viewBox="0 0 24 24"
+          width="20"
+          height="20"
+          fill="none"
+          aria-hidden="true"
+        >
+          <path
+            d="M6 15l6-6 6 6"
+            stroke="currentColor"
+            stroke-width="1.6"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+        <span class="mbn-label">Top</span>
+      </button>
+    </nav>
+
+    <!-- ================== Request quote =================== -->
+
+    <div
+      id="quoteModal"
+      class="quote-backdrop"
+      aria-hidden="true"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="quoteTitle"
+    >
+      <div class="quote-panel" role="document">
+        <div class="quote-head">
+          <div>
+            <h3 id="quoteTitle" class="quote-title">Request a quote</h3>
+            <div id="quoteSub" class="quote-sub">
+              Tell me about the project, service prefilled from the card.
+            </div>
+          </div>
+          <div>
+            <button
+              class="quote-close"
+              id="quoteClose"
+              aria-label="Close request a quote"
+            >
+              ✕
+            </button>
+          </div>
+        </div>
+
+        <form
+          id="quoteModalForm"
+          class="quote-form"
+          action="/contact/quote"
+          method="post"
+          enctype="multipart/form-data"
+          novalidate
+        >
+          <div class="row">
+            <div class="col">
+              <label for="q_name">Full name</label>
+              <input id="q_name" name="name" type="text" required />
+            </div>
+            <div class="col">
+              <label for="q_email">Email</label>
+              <input id="q_email" name="email" type="email" required />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="q_phone">Phone (optional)</label>
+              <input id="q_phone" name="phone" type="tel" />
+            </div>
+
+            <div class="col">
+              <label for="q_service">Service</label>
+              <!-- prefilled, but editable -->
+              <input id="q_service" name="service" type="text" />
+            </div>
+          </div>
+
+          <div class="row">
+            <div style="flex: 1">
+              <label for="q_desc">Project summary / requirements</label>
+              <textarea
+                id="q_desc"
+                name="description"
+                placeholder="Describe goals, platform, key features..."
+                required
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="q_budget">Budget (optional)</label>
+              <div style="display: flex; gap: 0.5rem; align-items: center">
+                <input
+                  id="q_budget"
+                  name="budget_amount"
+                  type="number"
+                  min="0"
+                  placeholder="Amount"
+                  style="flex: 1"
+                />
+                <select
+                  id="q_currency"
+                  name="budget_currency"
+                  required
+                ></select>
+              </div>
+            </div>
+
+            <div class="col">
+              <label for="q_when">Target start / deadline (optional)</label>
+              <input
+                id="q_when"
+                name="timeline"
+                type="text"
+                placeholder="e.g. Start: Mar 2026 / Deadline: Jun 2026"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+              <label for="q_files">Attachments (optional)</label>
+              <input id="q_files" name="attachments[]" type="file" multiple />
+            </div>
+            <div class="col">
+              <label style="display: block">&nbsp;</label>
+              <label style="font-size: 0.9rem; color: var(--muted)">
+                <input id="q_consent" name="consent" type="checkbox" required />
+                I consent to be contacted about this enquiry.
+              </label>
+            </div>
+          </div>
+
+          <div class="quote-actions">
+            <button type="submit" class="btn btn-primary">Send request</button>
+            <button type="button" class="btn btn-ghost" id="quoteCancel">
+              Cancel
+            </button>
+            <div
+              id="quoteSpinner"
+              aria-hidden="true"
+              style="margin-left: auto; color: var(--muted); font-size: 0.95rem"
+            >
+              You’ll receive a reply within 48 hours.
+            </div>
+          </div>
+
+          <div
+            id="quoteSuccess"
+            class="quote-success"
+            role="status"
+            aria-hidden="true"
+          >
+            ✅ Thanks — your request has been sent. I’ll reply within 48 hours.
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      (function () {
+        const modal = document.getElementById("quoteModal");
+        const form = document.getElementById("quoteModalForm");
+        const closeBtn = document.getElementById("quoteClose");
+        const cancelBtn = document.getElementById("quoteCancel");
+        const success = document.getElementById("quoteSuccess");
+        const spinnerNote = document.getElementById("quoteSpinner");
+
+        // Remember last focused element for return focus
+        let lastFocus = null;
+
+        function openModalWithService(serviceText = "") {
+          lastFocus = document.activeElement;
+          // set values
+          document.getElementById("q_service").value = serviceText;
+          // clear previous messages
+          success.setAttribute("aria-hidden", "true");
+          success.style.display = "none";
+          // show modal
+          modal.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          // focus first field
+          setTimeout(() => document.getElementById("q_name").focus(), 60);
+        }
+
+        function closeModal() {
+          modal.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          // restore focus
+          if (lastFocus && typeof lastFocus.focus === "function")
+            lastFocus.focus();
+        }
+
+        // Open when clicking any .svc-cta[data-action="quote"] inside cards
+        document
+          .querySelectorAll('.svc-cta[data-action="quote"]')
+          .forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              e.preventDefault();
+              // try to find service name from nearest card
+              const card = btn.closest(".svc-card");
+              let svc = "";
+              if (card)
+                svc =
+                  card.dataset.service ||
+                  card.querySelector(".svc-title")?.textContent?.trim() ||
+                  "";
+              // fallback to button text
+              if (!svc)
+                svc = btn.getAttribute("data-service") || "General enquiry";
+              openModalWithService(svc);
+            });
+          });
+
+        // Open from details panel button .svc-contact-now
+        document
+          .querySelectorAll(".svc-contact-now, .svc-contact-now")
+          .forEach((btn) => {
+            btn.addEventListener("click", (e) => {
+              e.preventDefault();
+              // If the details panel has a title, use it
+              const titleEl = document.getElementById("svcTitle");
+              const svc = titleEl?.textContent?.trim() || "General enquiry";
+              openModalWithService(svc);
+            });
+          });
+
+        // Close handlers
+        closeBtn.addEventListener("click", closeModal);
+        cancelBtn.addEventListener("click", closeModal);
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+        document.addEventListener("keydown", (e) => {
+          if (
+            e.key === "Escape" &&
+            modal.getAttribute("aria-hidden") === "false"
+          )
+            closeModal();
+          // optional: trap focus when modal open
+          if (modal.getAttribute("aria-hidden") === "false" && e.key === "Tab")
+            trapFocus(e);
+        });
+
+        // Focus trap implementation
+        function trapFocus(e) {
+          const focusable = modal.querySelectorAll(
+            'a, button, input, textarea, select, [tabindex]:not([tabindex="-1"])'
+          );
+          if (!focusable.length) return;
+          const first = focusable[0];
+          const last = focusable[focusable.length - 1];
+          if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+          } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+          }
+        }
+
+        // Form submit handler (demo)
+        form.addEventListener("submit", function (e) {
+          e.preventDefault(); // remove this if you want normal form submit to server
+
+          // Simple validation
+          const name = document.getElementById("q_name").value.trim();
+          const email = document.getElementById("q_email").value.trim();
+          const desc = document.getElementById("q_desc").value.trim();
+          if (!name || !email || !desc) {
+            alert("Please fill name, email and project summary.");
+            return;
+          }
+
+          // Show spinner / disable button (basic)
+          spinnerNote.textContent = "Sending...";
+          form.querySelector('button[type="submit"]').disabled = true;
+
+          // === Replace this block with real AJAX to your backend ===
+          // Example using fetch:
+          /*
+      const data = new FormData(form);
+      fetch(form.action, { method: 'POST', body: data })
+        .then(r => r.json())
+        .then(res => {
+          // show success message based on server response
+        })
+        .catch(err => {
+          // handle error
+        })
+        .finally(() => { /* cleanup *\/ });
+      */
+
+          // Demo success (simulate quick response)
+          setTimeout(() => {
+            success.setAttribute("aria-hidden", "false");
+            success.style.display = "block";
+            spinnerNote.textContent = "You’ll receive a reply within 48 hours.";
+            form.querySelector('button[type="submit"]').disabled = false;
+            form.reset();
+            // keep modal open so user sees success; auto-close after 2.2s (optional)
+            setTimeout(() => {
+              closeModal();
+            }, 2200);
+          }, 700);
+        });
+      })();
+    </script>
+    <script>
+      // List of currency codes (ISO 4217)
+      const currencies = [
+        "USD",
+        "EUR",
+        "GBP",
+        "NGN",
+        "CAD",
+        "AUD",
+        "JPY",
+        "CHF",
+        "CNY",
+        "INR",
+        "ZAR",
+        "BRL",
+        "MXN",
+        "SEK",
+        "NZD",
+        "SGD",
+        "HKD",
+        "KRW",
+        "TRY",
+        "RUB",
+        "AED",
+        "SAR",
+        "PLN",
+        "DKK",
+        "NOK",
+        "MYR",
+        "IDR",
+        "THB",
+        "PHP",
+        "ILS",
+        "CZK",
+        "HUF",
+        "CLP",
+        "PKR",
+        "EGP",
+        "COP",
+        "VND",
+        "BDT",
+        "KWD",
+        "QAR",
+      ];
+
+      const currencySelect = document.getElementById("q_currency");
+
+      // populate dropdown
+      currencies.forEach((code) => {
+        const option = document.createElement("option");
+        option.value = code;
+        option.textContent = code;
+        currencySelect.appendChild(option);
+      });
+    </script>
+
+    <!-- Bootstrap JS (optional for other components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+      /* ===========================
+     Galaxy canvas background
+     =========================== */
+      (function () {
+        const canvas = document.getElementById("galaxy-canvas");
+        const ctx = canvas.getContext("2d");
+        let w = (canvas.width = innerWidth);
+        let h = (canvas.height = innerHeight);
+        const DPR = Math.max(1, window.devicePixelRatio || 1);
+        canvas.width = w * DPR;
+        canvas.height = h * DPR;
+        canvas.style.width = w + "px";
+        canvas.style.height = h + "px";
+        ctx.scale(DPR, DPR);
+
+        let stars = [];
+        function initStars() {
+          w = canvas.width = innerWidth;
+          h = canvas.height = innerHeight;
+          canvas.width = w * DPR;
+          canvas.height = h * DPR;
+          canvas.style.width = w + "px";
+          canvas.style.height = h + "px";
+          ctx.scale(DPR, DPR);
+
+          stars = [];
+          const count = Math.round((w * h) / 12000);
+          for (let i = 0; i < count; i++) {
+            stars.push({
+              x: Math.random() * w,
+              y: Math.random() * h,
+              r: Math.random() * 1.6 + 0.2,
+              alpha: Math.random() * 0.9 + 0.08,
+              vx: (Math.random() - 0.5) * 0.02,
+              vy: (Math.random() - 0.5) * 0.02,
+            });
+          }
+        }
+        initStars();
+
+        const shoots = [];
+        function spawnShootingStar() {
+          const startX = Math.random() * w * 0.6 + w * 0.2;
+          const startY = Math.random() * h * 0.25 + h * 0.02;
+          shoots.push({
+            x: startX,
+            y: startY,
+            len: Math.random() * 200 + 120,
+            speed: 10 + Math.random() * 10,
+            angle: 0.24 + Math.random() * 0.12,
+            life: 0,
+            maxLife: 1.6 + Math.random() * 0.8,
+          });
+        }
+
+        let t = 0;
+        function loop() {
+          ctx.clearRect(0, 0, w, h);
+          t += 0.016;
+          const g = ctx.createLinearGradient(0, 0, w, h);
+          g.addColorStop(0, "rgba(6,7,12,0.6)");
+          g.addColorStop(1, "rgba(2,5,12,0.9)");
+          ctx.fillStyle = g;
+          ctx.fillRect(0, 0, w, h);
+
+          // stars
+          for (let s of stars) {
+            s.x += s.vx;
+            s.y += s.vy;
+            if (s.x < -2) s.x = w + 2;
+            if (s.x > w + 2) s.x = -2;
+            if (s.y < -2) s.y = h + 2;
+            if (s.y > h + 2) s.y = -2;
+
+            ctx.beginPath();
+            ctx.globalAlpha =
+              s.alpha * (0.6 + 0.4 * Math.sin(t * 0.8 + s.x * 0.002));
+            ctx.fillStyle = "#fff";
+            ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          ctx.globalAlpha = 1;
+
+          // occasional shooting star
+          if (Math.random() < 0.008) spawnShootingStar();
+
+          // draw shooting stars
+          for (let i = shoots.length - 1; i >= 0; i--) {
+            const S = shoots[i];
+            S.life += 0.016;
+            const progress = S.life / S.maxLife;
+            if (progress > 1) {
+              shoots.splice(i, 1);
+              continue;
+            }
+            const dx = Math.cos(S.angle) * S.speed * progress * 6;
+            const dy = Math.sin(S.angle) * S.speed * progress * 6;
+            const x = S.x + dx * (S.life * 6);
+            const y = S.y + dy * (S.life * 6);
+            const grad = ctx.createLinearGradient(x, y, x - dx * 4, y - dy * 4);
+            grad.addColorStop(
+              0,
+              "rgba(255,255,255," + (0.95 - progress * 0.9) + ")"
+            );
+            grad.addColorStop(1, "rgba(255,255,255,0)");
+            ctx.strokeStyle = grad;
+            ctx.lineWidth = 2 + (1 - progress) * 2;
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+            ctx.lineTo(x - dx * 6, y - dy * 6);
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.globalAlpha = 0.35 * (1 - progress);
+            ctx.arc(x, y, 2 + (1 - progress) * 4, 0, Math.PI * 2);
+            ctx.fillStyle = "white";
+            ctx.fill();
+            ctx.globalAlpha = 1;
+          }
+
+          requestAnimationFrame(loop);
+        }
+        window.addEventListener("resize", () => {
+          initStars();
+        });
+        loop();
+      })();
+
+      /* ===========================
+     Custom cursor
+     =========================== */
+      (function () {
+        const dot = document.getElementById("cursorDot");
+        if (!dot) return;
+        let mouseX = -100,
+          mouseY = -100;
+        document.addEventListener("mousemove", (e) => {
+          mouseX = e.clientX;
+          mouseY = e.clientY;
+          dot.style.transform = `translate(${mouseX}px, ${mouseY}px)`;
+        });
+
+        // enlarge on interactive elements
+        const interactive = "a, button, .btn, .nav-link, input, .mobile-link";
+        document.querySelectorAll(interactive).forEach((el) => {
+          el.addEventListener("mouseenter", () => dot.classList.add("big"));
+          el.addEventListener("mouseleave", () => dot.classList.remove("big"));
+        });
+
+        // hide on leaving window
+        document.addEventListener(
+          "mouseleave",
+          () => (dot.style.opacity = 0.03)
+        );
+        document.addEventListener(
+          "mouseenter",
+          () => (dot.style.opacity = 0.95)
+        );
+
+        // On touch devices hide the dot (safety in case media query not supported)
+        if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+          dot.style.display = "none";
+        }
+      })();
+
+      /* ===========================
+     Typewriter (name + rotating subtitle)
+     =========================== */
+      (function () {
+        const nameEl = document.getElementById("typewriterName");
+        const subEl = document.getElementById("typewriterSubtitle");
+        const nameCursor = document.getElementById("nameCursor");
+
+        const nameText = "Victor Etaduovie";
+        const subs = [
+          "Full-Stack Developer — Laravel • PHP • MySQL",
+          "Cross-Platform Apps with Flutter • Dart",
+          "Frontend: HTML • CSS • JS • Bootstrap • AJAX",
+          "I build reliable systems that scale for businesses",
+        ];
+
+        function typeText(el, text, speed = 60) {
+          return new Promise((resolve) => {
+            el.textContent = "";
+            let i = 0;
+            const id = setInterval(() => {
+              el.textContent += text[i++];
+              if (i >= text.length) {
+                clearInterval(id);
+                resolve();
+              }
+            }, speed);
+          });
+        }
+
+        async function loopSubtitles() {
+          while (true) {
+            for (let s of subs) {
+              await typeText(subEl, s, 30);
+              await new Promise((r) => setTimeout(r, 1400));
+              // delete
+              for (let k = s.length; k >= 0; k--) {
+                subEl.textContent = subEl.textContent.slice(0, k - 1);
+                await new Promise((r) => setTimeout(r, 15));
+              }
+              await new Promise((r) => setTimeout(r, 350));
+            }
+          }
+        }
+
+        (async () => {
+          await typeText(nameEl, nameText, 80);
+          // small blinking block cursor for name
+          const span = document.createElement("span");
+          span.innerHTML =
+            '<span style="display:inline-block;width:10px;height:20px;background:var(--accent);vertical-align:middle;animation:blink 1s steps(2) infinite;border-radius:2px"></span>';
+          nameCursor.appendChild(span);
+          loopSubtitles();
+        })();
+      })();
+
+      /* ===========================
+     Command prompt (simple commands, simulating AJAX)
+     =========================== */
+      (function () {
+        const prompt = document.getElementById("prompt");
+        const input = document.getElementById("cmdInput");
+        const runBtn = document.getElementById("runBtn");
+
+        const commands = {
+          help: "Available commands: help, about, skills, projects, cv, contact.",
+          about:
+            "I am Victor Etaduovie — Full-Stack developer building Laravel backends and Flutter apps. I focus on reliable, maintainable systems with measurable impact.",
+          skills:
+            "Key skills: Laravel, PHP, MySQL, Flutter, Dart, HTML, CSS, JS, Bootstrap, AJAX, jQuery, Git, REST APIs, CI/CD.",
+          projects:
+            'Open the "View my work" button to see a full gallery of projects. (Anchor: #projects)',
+          cv: 'Click the "Download CV" button to download my CV (replace placeholder href with your CV file).',
+          contact:
+            "Email: (placeholder) — set your preferred contact email in the header when ready.",
+        };
+
+        function printLine(text, cls = "") {
+          const d = document.createElement("div");
+          d.className = "line " + cls;
+          d.textContent = text;
+          prompt.appendChild(d);
+          prompt.scrollTop = prompt.scrollHeight;
+        }
+
+        function runCommand(raw) {
+          const cmd = raw.trim().toLowerCase();
+          if (!cmd) {
+            printLine("");
+            return;
+          }
+          printLine("victor@portfolio:~$ " + raw, "echo");
+          if (commands[cmd]) {
+            if (cmd === "skills") {
+              // simulate AJAX: show in-progress then result
+              printLine("Fetching skill summary (simulated AJAX)...", "meta");
+              setTimeout(() => printLine(commands["skills"], "out"), 650);
+            } else if (cmd === "cv") {
+              printLine("Preparing CV download (if configured)...", "meta");
+              setTimeout(
+                () =>
+                  printLine(
+                    'Use the "Download CV" button in the header.',
+                    "out"
+                  ),
+                600
+              );
+            } else {
+              printLine(commands[cmd], "out");
+            }
+          } else {
+            printLine(
+              "Command not found: " +
+                cmd +
+                " — type help for a list of commands",
+              "err"
+            );
+          }
+        }
+
+        runBtn.addEventListener("click", () => {
+          runCommand(input.value);
+          input.value = "";
+          input.focus();
+        });
+        input.addEventListener("keydown", (e) => {
+          if (e.key === "Enter") {
+            e.preventDefault();
+            runBtn.click();
+          }
+        });
+        prompt.addEventListener("click", () => input.focus());
+      })();
+
+      /* ===========================
+     Mobile menu toggle + accessibility + responsive fixes
+     =========================== */
+      (function () {
+        const mobileToggle = document.getElementById("mobileToggle");
+        const mobileMenu = document.getElementById("mobileMenu");
+        const mobileDownload = document.getElementById("mobileDownloadCv");
+        const downloadCv = document.getElementById("downloadCv");
+        const ctaDownload = document.getElementById("ctaDownload");
+
+        function closeMobileMenu() {
+          if (!mobileMenu) return;
+          mobileMenu.style.display = "none";
+          mobileMenu.setAttribute("aria-hidden", "true");
+        }
+        function openMobileMenu() {
+          if (!mobileMenu) return;
+          mobileMenu.style.display = "block";
+          mobileMenu.setAttribute("aria-hidden", "false");
+          const first = mobileMenu.querySelector(".mobile-link");
+          first && first.focus();
+        }
+
+        mobileToggle &&
+          mobileToggle.addEventListener("click", (e) => {
+            e.preventDefault();
+            if (!mobileMenu) return;
+            if (mobileMenu.style.display === "block") closeMobileMenu();
+            else openMobileMenu();
+          });
+
+        // close when clicking outside
+        document.addEventListener("click", (e) => {
+          if (!mobileMenu || mobileMenu.style.display !== "block") return;
+          if (
+            e.target.closest("#mobileMenu") ||
+            e.target.closest("#mobileToggle")
+          )
+            return;
+          closeMobileMenu();
+        });
+
+        // hide custom cursor on touch-capable devices as safety
+        if ("ontouchstart" in window || navigator.maxTouchPoints > 0) {
+          const dot = document.getElementById("cursorDot");
+          if (dot) dot.style.display = "none";
+          // remove hover handlers by replacing nodes (simple approach)
+          document
+            .querySelectorAll("a, button, .btn, .nav-link, input, .mobile-link")
+            .forEach((el) => {
+              el.onmouseenter = null;
+              el.onmouseleave = null;
+            });
+        }
+
+        // Normalize hero height for mobile address-bar issues
+        function normalizeHeroHeight() {
+          const hero = document.querySelector(".hero");
+          const header = document.querySelector("header.site-header");
+          if (!hero) return;
+          const headerH = header ? header.offsetHeight : 80;
+          hero.style.minHeight = window.innerHeight - headerH + "px";
+        }
+        window.addEventListener("resize", normalizeHeroHeight);
+        window.addEventListener("orientationchange", normalizeHeroHeight);
+        normalizeHeroHeight();
+
+        // Provide a helpful reminder if CV links are still placeholders
+        function warnIfNoCv() {
+          const placeholders = [downloadCv, mobileDownload, ctaDownload];
+          placeholders.forEach((btn) => {
+            if (!btn) return;
+            btn.addEventListener("click", (e) => {
+              const href = btn.getAttribute("href") || "";
+              if (!href || href === "#") {
+                e.preventDefault();
+                // friendly toast-like prompt
+                const old = document.querySelector("#cvWarning");
+                if (old) old.remove();
+                const warn = document.createElement("div");
+                warn.id = "cvWarning";
+                warn.textContent =
+                  'CV link not configured — replace href="#" with your CV file URL to enable download.';
+                warn.style.position = "fixed";
+                warn.style.left = "50%";
+                warn.style.bottom = "24px";
+                warn.style.transform = "translateX(-50%)";
+                warn.style.background = "rgba(0,0,0,0.6)";
+                warn.style.color = "white";
+                warn.style.padding = "10px 14px";
+                warn.style.borderRadius = "8px";
+                warn.style.zIndex = "99999";
+                document.body.appendChild(warn);
+                setTimeout(() => warn.remove(), 4200);
+              }
+            });
+          });
+        }
+        warnIfNoCv();
+      })();
+
+      /* ===========================
+     Small UX: focus first CTA on load for keyboard users
+     =========================== */
+      (function () {
+        window.addEventListener("load", () =>
+          document.querySelector(".btn-primary")?.focus()
+        );
+      })();
+    </script>
+
+    <!-- ============ About =============== -->
+    <script>
+      (function () {
+        /* -- Read more toggle for About -- */
+        const aboutToggle = document.getElementById("about-toggle");
+        const aboutMore = document.getElementById("about-long-more");
+        if (aboutToggle && aboutMore) {
+          aboutToggle.addEventListener("click", () => {
+            const open = aboutToggle.getAttribute("aria-expanded") === "true";
+            if (!open) {
+              // expand: set max-height to scrollHeight to animate
+              aboutMore.style.maxHeight = aboutMore.scrollHeight + "px";
+              aboutToggle.textContent = "Read less";
+              aboutToggle.setAttribute("aria-expanded", "true");
+            } else {
+              aboutMore.style.maxHeight = "0";
+              aboutToggle.textContent = "Read more";
+              aboutToggle.setAttribute("aria-expanded", "false");
+            }
+          });
+          // ensure collapsed height on load
+          window.addEventListener(
+            "load",
+            () => (aboutMore.style.maxHeight = "0")
+          );
+        }
+
+        /* -- Diagonal background image population & animation -- */
+        const diagBg = document.getElementById("diag-bg");
+        const pages = Array.from(document.querySelectorAll("#book .page"));
+        // collect images from page data-image attribute
+        const imgs = pages.map((p) => p.dataset.image).filter(Boolean);
+        const diagCount = Math.max(6, imgs.length * 2);
+
+        function spawnDiagItems() {
+          if (!diagBg) return;
+          diagBg.innerHTML = "";
+          for (let i = 0; i < diagCount; i++) {
+            const el = document.createElement("div");
+            el.className = "diag-item";
+            const img = imgs[i % imgs.length] || "";
+            // fallback: if no image provided, use gradient
+            if (img) el.style.backgroundImage = `url(${img})`;
+            else
+              el.style.backgroundImage = `linear-gradient(135deg, rgba(138,125,252,0.12), rgba(123,223,246,0.08))`;
+
+            // randomize initial position
+            const left = Math.random() * 120 - 20; // -20% -> 100%+
+            const top = Math.random() * 100 + 10;
+            el.style.left = left + "vw";
+            el.style.top = top + "vh";
+            // random animation duration & delay
+            const dur = (12 + Math.random() * 18).toFixed(1) + "s";
+            const delay = (Math.random() * 6).toFixed(2) + "s";
+            el.style.animationDuration = dur;
+            el.style.animationDelay = delay;
+            el.style.opacity = 0.08 + Math.random() * 0.12;
+            diagBg.appendChild(el);
+          }
+        }
+        spawnDiagItems();
+        window.addEventListener("resize", () => {
+          spawnDiagItems();
+        });
+
+        /* -- Book flip / page sync with scroll -- */
+        const book = document.getElementById("book");
+        const totalPages = pages.length;
+        const totalPagesEl = document.getElementById("totalPages");
+        if (totalPagesEl) totalPagesEl.textContent = totalPages;
+        const curPageEl = document.getElementById("curPage");
+
+        // helper to get URL from a page (prefer anchor href then data-url)
+        function getPageUrl(page) {
+          if (!page) return null;
+          const a = page.querySelector("a[href]");
+          if (
+            a &&
+            a.getAttribute("href") &&
+            a.getAttribute("href").trim() !== ""
+          )
+            return a.href;
+          if (
+            page.dataset &&
+            page.dataset.url &&
+            page.dataset.url.trim() !== ""
+          )
+            return page.dataset.url;
+          return null;
+        }
+
+        // helper to get thumbnail url
+        function getThumbUrl(page) {
+          const thumb = page.querySelector(".page-thumb");
+          if (!thumb) return null;
+          const bg = thumb.style.backgroundImage || "";
+          const m = bg.match(/url\(["']?(.*?)["']?\)/);
+          return m ? m[1] : null;
+        }
+
+        // Mirror page to phone-screen by loading iframe (or fallback)
+        const phoneScreen = document.getElementById("phone-screen");
+        function mirrorPageToPhone(index) {
+          if (!phoneScreen) return;
+          const pg = pages[index];
+          if (!pg) return;
+
+          const url = getPageUrl(pg);
+          // clear current content
+          phoneScreen.innerHTML = "";
+
+          if (url) {
+            // build iframe wrapper + loader + actions
+            const wrap = document.createElement("div");
+            wrap.className = "phone-iframe-wrap";
+            wrap.style.width = "100%";
+            wrap.style.height = "100%";
+            wrap.style.position = "relative";
+            wrap.style.overflow = "hidden";
+
+            const loader = document.createElement("div");
+            loader.className = "loader";
+            loader.style.position = "absolute";
+            loader.style.left = "50%";
+            loader.style.top = "50%";
+            loader.style.transform = "translate(-50%, -50%)";
+            loader.style.width = "36px";
+            loader.style.height = "36px";
+            loader.style.borderRadius = "50%";
+            loader.style.border = "4px solid rgba(255,255,255,0.06)";
+            loader.style.borderTopColor = "var(--accent)";
+            loader.style.animation = "spin 1s linear infinite";
+            wrap.appendChild(loader);
+
+            const iframe = document.createElement("iframe");
+            iframe.src = url;
+            iframe.title = pg.dataset.title || "Live preview";
+            iframe.setAttribute("loading", "lazy");
+            iframe.style.width = "100%";
+            iframe.style.height = "100%";
+            iframe.style.border = "0";
+            iframe.style.borderRadius = "12px";
+            iframe.style.opacity = "0";
+            iframe.style.transition = "opacity .36s ease";
+            iframe.addEventListener("load", () => {
+              // remove loader and fade-in
+              if (loader && loader.parentNode)
+                loader.parentNode.removeChild(loader);
+              iframe.style.opacity = "1";
+            });
+
+            wrap.appendChild(iframe);
+            phoneScreen.appendChild(wrap);
+
+            // actions (open in new tab)
+            const actions = document.createElement("div");
+            actions.className = "iframe-actions";
+            actions.style.position = "absolute";
+            actions.style.left = "12px";
+            actions.style.right = "12px";
+            actions.style.bottom = "12px";
+            actions.style.display = "flex";
+            actions.style.justifyContent = "center";
+            actions.style.pointerEvents = "auto";
+
+            const openBtn = document.createElement("a");
+            openBtn.className = "open-btn";
+            openBtn.textContent = "Open in new tab";
+            openBtn.href = url;
+            openBtn.target = "_blank";
+            openBtn.rel = "noopener noreferrer";
+            actions.appendChild(openBtn);
+            phoneScreen.appendChild(actions);
+
+            // fallback: if iframe doesn't load within 5s, remove loader (embedding blocked)
+            const fallbackTimer = setTimeout(() => {
+              if (iframe.style.opacity !== "1" && loader.parentNode) {
+                loader.parentNode.removeChild(loader);
+                // still keep open button for user
+              }
+            }, 5000);
+            iframe.addEventListener("load", () => clearTimeout(fallbackTimer));
+          } else {
+            // show thumbnail or placeholder
+            const thumbUrl = getThumbUrl(pg);
+            if (thumbUrl) {
+              const div = document.createElement("div");
+              div.style.width = "100%";
+              div.style.height = "100%";
+              div.style.backgroundImage = `url('${thumbUrl}')`;
+              div.style.backgroundSize = "cover";
+              div.style.backgroundPosition = "center";
+              div.style.borderRadius = "12px";
+              phoneScreen.appendChild(div);
+              return;
+            }
+            const ph = document.createElement("div");
+            ph.className = "no-preview";
+            ph.style.width = "100%";
+            ph.style.height = "100%";
+            ph.style.display = "flex";
+            ph.style.alignItems = "center";
+            ph.style.justifyContent = "center";
+            ph.style.textAlign = "center";
+            ph.style.padding = "16px";
+            ph.style.color = "rgba(232,240,255,0.6)";
+            ph.innerHTML =
+              "No live preview available<br><small>(Project not linked)</small>";
+            phoneScreen.appendChild(ph);
+          }
+        }
+
+        // keep a current index and wire prev/next controls
+        let currentIndex = 0; // start at 0
+
+        // single setBookTo implementation (updates transforms, counter, mirror and buttons)
+        function setBookTo(index) {
+          // clamp index
+          index = Math.max(0, Math.min(totalPages - 1, index));
+          pages.forEach((pg, i) => {
+            const offset = i - index;
+            if (i < index) {
+              pg.style.transform = `translateX(${
+                -8 * (index - i)
+              }px) rotateY(-170deg)`;
+              pg.style.zIndex = 10 + i;
+              pg.classList.remove("hidden");
+            } else if (i === index) {
+              pg.style.transform = `translateX(0px) rotateY(0deg)`;
+              pg.style.zIndex = 100 + i;
+              pg.classList.remove("hidden");
+            } else {
+              pg.style.transform = `translateX(${
+                12 * (i - index)
+              }px) scale(.995)`;
+              pg.style.zIndex = 1 + (totalPages - i);
+              pg.classList.remove("hidden");
+            }
+          });
+
+          // update counter + mirror + nav
+          currentIndex = index;
+          if (curPageEl) curPageEl.textContent = index + 1;
+          mirrorPageToPhone(index);
+          updateNavButtons();
+        }
+
+        const prevBtn = document.getElementById("prevPage");
+        const nextBtn = document.getElementById("nextPage");
+
+        function updateNavButtons() {
+          if (!prevBtn || !nextBtn) return;
+          prevBtn.disabled = currentIndex <= 0;
+          nextBtn.disabled = currentIndex >= totalPages - 1;
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener("click", () => {
+            setBookTo(currentIndex - 1);
+            // keep section visible for visual sync
+            workSection &&
+              workSection.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener("click", () => {
+            setBookTo(currentIndex + 1);
+            workSection &&
+              workSection.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+          });
+        }
+
+        // ensure initial state of buttons
+        updateNavButtons();
+
+        /* IntersectionObserver: when #work-section is visible, start tracking scroll inside section */
+        const workSection = document.getElementById("work-section");
+        if (workSection && book) {
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((en) => {
+                if (en.isIntersecting) {
+                  // when entering, set pages to initial
+                  setBookTo(0);
+                  // listen for page scroll progress (map section scroll to page index)
+                  window.addEventListener("scroll", onScrollMap, {
+                    passive: true,
+                  });
+                } else {
+                  // when leaving section, remove scroll listener
+                  window.removeEventListener("scroll", onScrollMap);
+                }
+              });
+            },
+            { threshold: 0.25 }
+          );
+          io.observe(workSection);
+        }
+
+        // map scroll position (relative to workSection) to page index
+        function onScrollMap() {
+          const rect = workSection.getBoundingClientRect();
+          const vh = window.innerHeight;
+          // compute progress when the section is in view
+          const totalRange = rect.height + vh; // safe mapping range
+          const scrolled = Math.min(Math.max(vh - rect.top, 0), totalRange);
+          const progress = scrolled / totalRange; // 0..1
+          // map to page index
+          const idx = Math.min(
+            totalPages - 1,
+            Math.floor(progress * totalPages)
+          );
+          setBookTo(idx);
+        }
+
+        // initial mirror set
+        setBookTo(0);
+
+        /* Accessibility: allow arrow keys to flip when focus in section */
+        workSection &&
+          workSection.addEventListener("keydown", (e) => {
+            if (["ArrowLeft", "ArrowRight"].includes(e.key)) {
+              e.preventDefault();
+              let cur = parseInt(curPageEl.textContent, 10) - 1;
+              if (e.key === "ArrowLeft") cur = Math.max(0, cur - 1);
+              else cur = Math.min(totalPages - 1, cur + 1);
+              setBookTo(cur);
+              // scroll the section slightly for visual sync
+              workSection.scrollIntoView({
+                behavior: "smooth",
+                block: "center",
+              });
+            }
+          });
+
+        // Observe class changes on pages to update phone when active class toggles (if other code toggles it)
+        const mo = new MutationObserver((mutations) => {
+          for (const m of mutations) {
+            if (m.type === "attributes" && m.attributeName === "class") {
+              // debounce small updates
+              clearTimeout(window._phoneUpdateTimer);
+              window._phoneUpdateTimer = setTimeout(() => {
+                // keep currentIndex in sync if some external code changed active class
+                const active = document.querySelector(".book .page.active");
+                if (active) {
+                  const idx = pages.indexOf(active);
+                  if (idx >= 0 && idx !== currentIndex) setBookTo(idx);
+                  else mirrorPageToPhone(currentIndex);
+                } else {
+                  mirrorPageToPhone(currentIndex);
+                }
+              }, 60);
+              break;
+            }
+          }
+        });
+        pages.forEach((p) =>
+          mo.observe(p, { attributes: true, attributeFilter: ["class"] })
+        );
+
+        // listen for possible custom events from other slider logic
+        document.addEventListener("slideChanged", () =>
+          setBookTo(currentIndex)
+        );
+
+        // expose update function if needed externally
+        window.updatePhoneFromActive = function () {
+          mirrorPageToPhone(currentIndex);
+        };
+      })();
+    </script>
+
+    <!--===============  Services =================== -->
+    <script>
+      (function () {
+        // Filter buttons
+        const filters = document.querySelectorAll(".svc-filter");
+        const cards = Array.from(document.querySelectorAll(".svc-card"));
+        filters.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            filters.forEach((b) => b.classList.remove("active"));
+            btn.classList.add("active");
+            const f = btn.dataset.filter;
+            cards.forEach((c) => {
+              if (f === "all") {
+                c.style.display = "";
+                return;
+              }
+              const cat = c.dataset.category || "";
+              c.style.display = cat === f ? "" : "none";
+            });
+          });
+        });
+
+        // Details panel reuse
+        const details = document.getElementById("svcDetails");
+        const svcTitle = document.getElementById("svcTitle");
+        const svcLong = document.getElementById("svcLong");
+        const svcStack = document.getElementById("svcStack");
+
+        function openDetailsFromCard(card) {
+          const service =
+            card.dataset.service ||
+            card.querySelector(".svc-title")?.textContent ||
+            "Service";
+          const long =
+            card.dataset.long || "Detailed description not provided.";
+          const stack =
+            card.dataset.stack ||
+            card.dataset.category ||
+            "Laravel, PHP, MySQL, Flutter";
+          svcTitle.textContent = service;
+          svcLong.textContent = long;
+          svcStack.textContent = stack;
+          details.setAttribute("aria-hidden", "false");
+          document.body.style.overflow = "hidden";
+          details.querySelector(".svc-close")?.focus();
+        }
+        function closeDetails() {
+          details.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+        }
+
+        // open on click/keyboard
+        cards.forEach((card) => {
+          card.addEventListener("click", (e) => {
+            // ignore click on CTA link
+            if (e.target.closest("a")) return;
+            openDetailsFromCard(card);
+          });
+          card.querySelector(".svc-more")?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            openDetailsFromCard(card);
+          });
+          // keyboard activation
+          card.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openDetailsFromCard(card);
+            }
+          });
+        });
+
+        // close handlers
+        details
+          .querySelectorAll("[data-close]")
+          .forEach((el) => el.addEventListener("click", closeDetails));
+        document.addEventListener("keydown", (e) => {
+          if (
+            e.key === "Escape" &&
+            details.getAttribute("aria-hidden") === "false"
+          )
+            closeDetails();
+        });
+
+        // Basic tilt effect for cards (mouse only)
+        cards.forEach((c) => {
+          c.addEventListener("mousemove", (e) => {
+            const rect = c.getBoundingClientRect(),
+              x = e.clientX - rect.left,
+              y = e.clientY - rect.top;
+            const px = x / rect.width - 0.5,
+              py = y / rect.height - 0.5;
+            const rx = -py * 8,
+              ry = px * 10;
+            c.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+          });
+          c.addEventListener("mouseleave", () => {
+            c.style.transform = "";
+          });
+        });
+      })();
+    </script>
+    <script>
+      (function () {
+        const cards = Array.from(document.querySelectorAll(".proj-card"));
+        const modal = document.getElementById("projectModal");
+        const modalTitle = document.getElementById("modalTitle");
+        const modalDesc = document.getElementById("modalDesc");
+        const modalStack = document.getElementById("modalStack");
+        const modalDemo = document.getElementById("modalDemo");
+        const modalRepo = document.getElementById("modalRepo");
+        const carTrack = document.getElementById("carTrack");
+        const pmCarousel = document.getElementById("pmCarousel");
+        const total = cards.length;
+        let currentIndex = 0;
+
+        function openModal(index) {
+          const card = cards[index];
+          if (!card) return;
+          currentIndex = index;
+          const title = card.dataset.title || "";
+          const desc = card.dataset.desc || "";
+          const stack = card.dataset.stack || "";
+          const demo = card.dataset.demo || "#";
+          const repo = card.dataset.repo || "#";
+          const images = (card.dataset.images || "")
+            .split(",")
+            .map((s) => s.trim())
+            .filter(Boolean);
+
+          modal.setAttribute("aria-hidden", "false");
+          modalTitle.textContent = title;
+          modalDesc.textContent = desc;
+          modalStack.textContent = stack;
+          modalDemo.href = demo;
+          modalRepo.href = repo;
+
+          // populate carousel
+          carTrack.innerHTML = "";
+          if (images.length === 0) {
+            const fallback = document.createElement("div");
+            fallback.className = "car-item";
+            fallback.style.background =
+              "linear-gradient(135deg, rgba(138,125,252,0.12), rgba(123,223,246,0.08))";
+            carTrack.appendChild(fallback);
+          } else {
+            images.forEach((src) => {
+              const it = document.createElement("div");
+              it.className = "car-item";
+              it.style.backgroundImage = `url('${src}')`;
+              carTrack.appendChild(it);
+            });
+          }
+
+          // add sample code snippet (customize per project if you like)
+          document.getElementById(
+            "modalCode"
+          ).textContent = `<!-- Example: quick snippet for ${title} -->
+// server-side job queue example (Laravel)
+dispatch(new \\App\\Jobs\\ProcessPayment($order));
+`;
+
+          // reset carousel scroll to first
+          carTrack.scrollLeft = 0;
+          // trap focus
+          modal.querySelector(".pm-close")?.focus();
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeModal() {
+          modal.setAttribute("aria-hidden", "true");
+          document.body.style.overflow = "";
+          // return focus to current card
+          const card = cards[currentIndex];
+          card && card.focus();
+        }
+
+        // click handlers to open modal (buttons / cards)
+        cards.forEach((c, idx) => {
+          const openHandler = () => openModal(idx);
+          c.addEventListener("click", openHandler);
+          c.querySelector(".proj-cta")?.addEventListener("click", (e) => {
+            e.stopPropagation();
+            openHandler();
+          });
+          // keyboard activation
+          c.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              openHandler();
+            }
+          });
+
+          // tilt effect (mouse only)
+          c.addEventListener("mousemove", (e) => {
+            const rect = c.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width; // 0..1
+            const y = (e.clientY - rect.top) / rect.height;
+            const rx = (y - 0.5) * 8; // rotateX
+            const ry = (x - 0.5) * -12; // rotateY
+            c.style.transform = `perspective(900px) rotateX(${rx}deg) rotateY(${ry}deg) translateZ(0)`;
+          });
+          c.addEventListener("mouseleave", () => {
+            c.style.transform = "";
+          });
+        });
+
+        // modal close buttons (backdrop & close)
+        modal
+          .querySelectorAll("[data-close]")
+          .forEach((el) => el.addEventListener("click", closeModal));
+
+        // carousel controls
+        const leftBtn = modal.querySelector(".car-left");
+        const rightBtn = modal.querySelector(".car-right");
+        leftBtn &&
+          leftBtn.addEventListener("click", () => {
+            carTrack.scrollBy({ left: -340, behavior: "smooth" });
+          });
+        rightBtn &&
+          rightBtn.addEventListener("click", () => {
+            carTrack.scrollBy({ left: 340, behavior: "smooth" });
+          });
+
+        // keyboard support: Esc to close, left/right to navigate projects
+        document.addEventListener("keydown", (e) => {
+          if (modal.getAttribute("aria-hidden") === "false") {
+            if (e.key === "Escape") closeModal();
+            if (e.key === "ArrowLeft") {
+              currentIndex = Math.max(0, currentIndex - 1);
+              openModal(currentIndex);
+            }
+            if (e.key === "ArrowRight") {
+              currentIndex = Math.min(total - 1, currentIndex + 1);
+              openModal(currentIndex);
+            }
+          }
+        });
+
+        // accessible focus trap: basic (returns focus to modal close on tab loop)
+        modal.addEventListener("keydown", (e) => {
+          if (e.key === "Tab") {
+            const focusable = modal.querySelectorAll(
+              'a,button,[tabindex]:not([tabindex="-1"])'
+            );
+            if (!focusable.length) return;
+            const first = focusable[0],
+              last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) {
+              e.preventDefault();
+              last.focus();
+            } else if (!e.shiftKey && document.activeElement === last) {
+              e.preventDefault();
+              first.focus();
+            }
+          }
+        });
+
+        // close modal on backdrop click
+        modal
+          .querySelector(".pm-backdrop")
+          ?.addEventListener("click", closeModal);
+      })();
+    </script>
+
+    <script>
+      (function () {
+        // CONFIG: change to your server endpoint (POST). If empty or '#', script will simulate sending.
+        const FORM_ENDPOINT = "#"; // e.g. 'https://yourdomain.com/api/contact'
+
+        const form = document.getElementById("contactForm");
+        const sendBtn = document.getElementById("sendBtn");
+        const clearBtn = document.getElementById("clearBtn");
+        const statusNode = document.getElementById("formStatus");
+        const orbit = document.getElementById("orbitRing");
+
+        // Basic client-side validation
+        function validateForm(data) {
+          if (!data.get("name") || data.get("name").trim().length < 2)
+            return "Please enter your name.";
+          if (!data.get("email") || !/^.+@.+\..+$/.test(data.get("email")))
+            return "Please enter a valid email.";
+          if (!data.get("message") || data.get("message").trim().length < 10)
+            return "Please enter a brief message (min 10 chars).";
+          // honeypot:
+          if (data.get("faxnumber")) return "bot";
+          return null;
+        }
+
+        // Show status
+        function showStatus(
+          success = true,
+          text = "Message sent. I will reply within 48 hours."
+        ) {
+          statusNode.hidden = false;
+          statusNode.classList.toggle("success", success);
+          statusNode.querySelector(".status-text strong").textContent = success
+            ? "Message sent."
+            : "Message failed";
+          statusNode.querySelector(".status-text .small").textContent = success
+            ? "I'll reply within 48 hours."
+            : text;
+          // simple animation: fade then hide after 6s on success
+          if (success) {
+            setTimeout(() => {
+              statusNode.hidden = true;
+            }, 6000);
+          }
+        }
+
+        // AJAX send
+        form.addEventListener("submit", async (ev) => {
+          ev.preventDefault();
+          if (sendBtn.disabled) return;
+          sendBtn.disabled = true;
+          sendBtn.textContent = "Sending...";
+
+          const fd = new FormData(form);
+          const invalid = validateForm(fd);
+          if (invalid) {
+            alert(invalid);
+            sendBtn.disabled = false;
+            sendBtn.textContent = "Send message";
+            return;
+          }
+
+          // If no real endpoint provided, simulate
+          if (!FORM_ENDPOINT || FORM_ENDPOINT === "#") {
+            await new Promise((r) => setTimeout(r, 900)); // simulate network
+            showStatus(true);
+            form.reset();
+            sendBtn.disabled = false;
+            sendBtn.textContent = "Send message";
+            return;
+          }
+
+          try {
+            const resp = await fetch(FORM_ENDPOINT, {
+              method: "POST",
+              body: fd,
+              headers: { Accept: "application/json" },
+            });
+            if (!resp.ok) throw new Error("Network response not ok");
+            const j = await resp.json();
+            if (j?.success === false)
+              throw new Error(j.message || "Server rejected");
+            showStatus(true);
+            form.reset();
+          } catch (err) {
+            console.error(err);
+            showStatus(
+              false,
+              err.message || "Failed to send. Try again later."
+            );
+          } finally {
+            sendBtn.disabled = false;
+            sendBtn.textContent = "Send message";
+          }
+        });
+
+        // Clear button
+        clearBtn.addEventListener("click", () => {
+          form.reset();
+        });
+
+        /* Orbit ring: follows pointer inside form area (desktop only) */
+        if (
+          orbit &&
+          window.matchMedia("(hover: hover) and (pointer: fine)").matches
+        ) {
+          const rectOffset = form.getBoundingClientRect();
+          form.addEventListener("mousemove", (e) => {
+            const r = form.getBoundingClientRect();
+            orbit.style.left = e.clientX - r.left + "px";
+            orbit.style.top = e.clientY - r.top + "px";
+            orbit.style.transform = "translate(-50%,-50%) scale(1)";
+          });
+          form.addEventListener("mouseleave", () => {
+            orbit.style.transform = "translate(-50%,-50%) scale(0.6)";
+          });
+        } else if (orbit) {
+          orbit.style.display = "none"; // hide on touch devices
+        }
+
+        /* Typing-in placeholder animation when form enters view */
+        (function placeholderTypeIn() {
+          const inputs = [
+            document.getElementById("name"),
+            document.getElementById("email"),
+            document.getElementById("subject"),
+            document.getElementById("message"),
+          ];
+          const texts = [
+            "Victor Etaduovie *",
+            "victoretad@gmail.com *",
+            "Project / subject",
+            "Brief message — goals, budget, timeline (approx.) *",
+          ];
+          let started = false;
+          if ("IntersectionObserver" in window) {
+            const io = new IntersectionObserver(
+              (entries, obs) => {
+                entries.forEach((entry) => {
+                  if (entry.isIntersecting && !started) {
+                    started = true;
+                    obs.disconnect();
+                    // type placeholders sequentially (fast)
+                    (async function typeAll() {
+                      for (let i = 0; i < inputs.length; i++) {
+                        await new Promise((r) => setTimeout(r, 120 * i));
+                        const el = inputs[i];
+                        const txt = texts[i];
+                        if (!el) continue;
+                        // animate placeholder by setting attribute gradually
+                        el.setAttribute("placeholder", "");
+                        for (let k = 0; k < txt.length; k++) {
+                          el.setAttribute("placeholder", txt.slice(0, k + 1));
+                          await new Promise((r) => setTimeout(r, 12));
+                        }
+                        // mark with typed class
+                        el.classList.add("placeholder-typed");
+                      }
+                    })();
+                  }
+                });
+              },
+              { threshold: 0.2 }
+            );
+            io.observe(form);
+          } else {
+            // fallback: immediate placeholders
+            inputs.forEach(
+              (el, i) => el && el.setAttribute("placeholder", texts[i])
+            );
+          }
+        })();
+      })();
+    </script>
+    <script>
+      (function () {
+        const container = document.getElementById("veFab");
+        const btn = document.getElementById("veFabBtnFixed");
+        const menu = document.getElementById("veFabMenu");
+        const items = Array.from(menu.querySelectorAll(".ve-fab-item-fixed"));
+        let open = false;
+
+        // toggle open/close by toggling .open on container — CSS handles positions via nth-child
+        function openMenu() {
+          if (open) return;
+          open = true;
+          container.classList.add("open");
+          btn.setAttribute("aria-expanded", "true");
+          menu.setAttribute("aria-hidden", "false");
+        }
+        function closeMenu() {
+          if (!open) return;
+          open = false;
+          container.classList.remove("open");
+          btn.setAttribute("aria-expanded", "false");
+          menu.setAttribute("aria-hidden", "true");
+        }
+
+        btn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          open ? closeMenu() : openMenu();
+        });
+
+        // clicking outside closes
+        document.addEventListener("click", (e) => {
+          if (!open) return;
+          if (!e.target.closest(".ve-fab-fixed")) closeMenu();
+        });
+
+        // keyboard accessibility
+        btn.addEventListener("keydown", (e) => {
+          if (e.key === "Escape") closeMenu();
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            btn.click();
+          }
+          if ((e.key === "ArrowDown" || e.key === "Tab") && open) {
+            e.preventDefault();
+            items[0]?.focus();
+          }
+        });
+
+        items.forEach((it, idx) => {
+          it.tabIndex = 0;
+          it.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+              closeMenu();
+              btn.focus();
+            }
+            if (e.key === "ArrowDown") {
+              e.preventDefault();
+              items[(idx + 1) % items.length].focus();
+            }
+            if (e.key === "ArrowUp") {
+              e.preventDefault();
+              items[(idx - 1 + items.length) % items.length].focus();
+            }
+          });
+          // close after click (allow link to open)
+          it.addEventListener("click", () => {
+            setTimeout(closeMenu, 140);
+          });
+        });
+      })();
+    </script>
+
+    <!-- ===== Footer JS: small behaviors (paste after footer, before </body>) ===== -->
+    <script>
+      (function () {
+        // set current year
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        // back to top smooth scroll
+        document
+          .getElementById("backToTop")
+          .addEventListener("click", function (e) {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: "smooth" });
+          });
+
+        // subscribe form: simple client-side validation + simulation (replace action to integrate)
+        const subscribe = document.getElementById("footerSubscribe");
+        subscribe &&
+          subscribe.addEventListener("submit", function (e) {
+            e.preventDefault();
+            const email = this.querySelector(
+              'input[name="email"]'
+            ).value.trim();
+            if (!/.+@.+\..+/.test(email)) {
+              alert("Please enter a valid email");
+              return;
+            }
+            // visual feedback (temporary)
+            const btn = this.querySelector("button");
+            const old = btn.textContent;
+            btn.textContent = "Subscribed ✓";
+            btn.disabled = true;
+            setTimeout(() => {
+              btn.textContent = old;
+              btn.disabled = false;
+              subscribe.reset();
+            }, 1800);
+            // Replace with AJAX to Formspree / EmailJS if you want real subscription
+          });
+      })();
+    </script>
+    <script>
+      (function () {
+        const nav = document.getElementById("mobileBottomNav");
+        if (!nav) return;
+
+        const items = Array.from(nav.querySelectorAll(".mbn-item"));
+
+        // Scroll to anchor, smooth
+        items.forEach((btn) => {
+          btn.addEventListener("click", (e) => {
+            const target = btn.dataset.target;
+            if (!target) return;
+            if (target === "top") {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+              return;
+            }
+            const el = document.querySelector(target);
+            if (el) {
+              el.scrollIntoView({ behavior: "smooth", block: "start" });
+            } else {
+              // fallback: try anchor name
+              window.location.href = target;
+            }
+          });
+
+          // keyboard
+          btn.addEventListener("keydown", (e) => {
+            if (e.key === "Enter" || e.key === " ") {
+              e.preventDefault();
+              btn.click();
+            }
+          });
+        });
+
+        // Highlight nav item based on visible section using IntersectionObserver
+        const sections = [
+          "#about-section",
+          "#projects-section",
+          "#services-section",
+          "#contact-section",
+        ];
+        const sectionEls = sections
+          .map((sel) => document.querySelector(sel))
+          .filter(Boolean);
+
+        if ("IntersectionObserver" in window) {
+          const obs = new IntersectionObserver(
+            (entries) => {
+              // pick the entry with largest intersection ratio
+              let max = { ratio: 0, id: null };
+              entries.forEach((en) => {
+                if (en.intersectionRatio > max.ratio) {
+                  max.ratio = en.intersectionRatio;
+                  max.id = en.target.id;
+                }
+              });
+              // clear active
+              items.forEach((it) => it.classList.remove("active"));
+              if (max.id) {
+                // map section id to button
+                const map = {
+                  "about-section": "#about-section",
+                  "projects-section": "#projects-section",
+                  "services-section": "#services-section",
+                  "contact-section": "#contact-section",
+                };
+                const sel = map[max.id];
+                const activeBtn = items.find((b) => b.dataset.target === sel);
+                if (activeBtn) activeBtn.classList.add("active");
+              }
+            },
+            { threshold: [0.15, 0.35, 0.6] }
+          );
+
+          sectionEls.forEach((s) => obs.observe(s));
+        } else {
+          // fallback: simple scroll listener
+          window.addEventListener(
+            "scroll",
+            () => {
+              let idx = 0;
+              for (let i = 0; i < sectionEls.length; i++) {
+                if (
+                  window.scrollY >=
+                  sectionEls[i].offsetTop - window.innerHeight / 3
+                )
+                  idx = i;
+              }
+              items.forEach((it) => it.classList.remove("active"));
+              const active = items.find(
+                (b) => b.dataset.target === sections[idx]
+              );
+              active && active.classList.add("active");
+            },
+            { passive: true }
+          );
+        }
+
+        // Optional: hide nav on scroll down and show on scroll up (unobtrusive)
+        let lastY = window.scrollY;
+        let ticking = false;
+        function onScrollHide() {
+          const y = window.scrollY;
+          if (Math.abs(y - lastY) < 15) return;
+          if (y > lastY && y > 120) {
+            // scrolled down
+            nav.style.transform = "translateY(18px)";
+            nav.style.opacity = "0.0";
+            nav.style.pointerEvents = "none";
+          } else {
+            // scrolled up
+            nav.style.transform = "";
+            nav.style.opacity = "1";
+            nav.style.pointerEvents = "";
+          }
+          lastY = y;
+          ticking = false;
+        }
+        window.addEventListener(
+          "scroll",
+          () => {
+            if (!ticking) {
+              requestAnimationFrame(onScrollHide);
+              ticking = true;
+            }
+          },
+          { passive: true }
+        );
+      })();
+    </script>
+    <!-- ===== FAB JS (place after the HTML FAB snippet, before </body>) ===== -->
+    <script>
+      (function () {
+        const fabWrap = document.querySelector(".ve-fab-wrap");
+        const fabBtn = document.getElementById("veFab");
+        const menu = document.getElementById("veFabMenu");
+        const items = Array.from(menu.querySelectorAll(".ve-fab-item"));
+
+        if (!fabWrap || !fabBtn || !menu) return;
+
+        // helper: toggle
+        function openFab() {
+          fabWrap.classList.add("open");
+          fabBtn.classList.add("open");
+          fabBtn.setAttribute("aria-expanded", "true");
+          menu.setAttribute("aria-hidden", "false");
+          // stop bounce visually after a tiny delay
+          setTimeout(() => fabBtn.classList.add("open"), 80);
+        }
+        function closeFab() {
+          fabWrap.classList.remove("open");
+          fabBtn.classList.remove("open");
+          fabBtn.setAttribute("aria-expanded", "false");
+          menu.setAttribute("aria-hidden", "true");
+        }
+
+        // toggle on click
+        fabBtn.addEventListener("click", (e) => {
+          e.stopPropagation();
+          const isOpen = fabWrap.classList.contains("open");
+          if (isOpen) closeFab();
+          else openFab();
+        });
+
+        // keyboard support: Enter / Space toggle; Esc to close
+        fabBtn.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            fabBtn.click();
+          }
+          if (e.key === "Escape") closeFab();
+        });
+
+        // items: close menu when one is used (and keep default action)
+        items.forEach((item) => {
+          item.addEventListener("click", () => closeFab());
+          item.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") {
+              e.preventDefault();
+              closeFab();
+              fabBtn.focus();
+            }
+          });
+        });
+
+        // close when clicking outside
+        document.addEventListener("click", (e) => {
+          if (!fabWrap.contains(e.target)) closeFab();
+        });
+
+        // close on scroll down (optional smoothing) - keep it subtle
+        let lastY = window.scrollY;
+        window.addEventListener(
+          "scroll",
+          () => {
+            const y = window.scrollY;
+            if (Math.abs(y - lastY) > 40) {
+              closeFab();
+            }
+            lastY = y;
+          },
+          { passive: true }
+        );
+
+        // ensure fab doesn't trap pointer events when hidden (some browsers)
+        // pointer-events handled via CSS; nothing else needed.
+      })();
+    </script>
+  </body>
+</html>

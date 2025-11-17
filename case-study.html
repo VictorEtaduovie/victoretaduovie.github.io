@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Case: E-Commerce Platform — Victor Etaduovie</title>
+    <style>
+      body {
+        margin: 0;
+        font-family: Inter, Arial;
+        background: #071021;
+        color: #e8f0ff;
+        padding: 24px;
+      }
+      .wrap {
+        max-width: 900px;
+        margin: 0 auto;
+      }
+      h1 {
+        color: #7bdff6;
+      }
+      pre {
+        background: #07131a;
+        padding: 12px;
+        border-radius: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        font-family: ui-monospace, monospace;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <h1>&lt;E-Commerce Platform — Laravel + Stripe&gt;</h1>
+      <p><strong>Role:</strong> Lead backend & integration (8 weeks)</p>
+      <p>
+        <strong>Overview:</strong> Rebuilt checkout APIs, implemented Redis
+        caching for catalog lookups, introduced queued processing for receipts
+        and webhook handlers for Stripe with idempotency.
+      </p>
+      <h3>Implementation highlights</h3>
+      <pre>
+&lt;php&gt; // Laravel - queue job example
+dispatch(new ProcessPayment($request->all()));</pre
+      >
+      <h3>Outcome</h3>
+      <ul>
+        <li>Checkout latency reduced by 65%</li>
+        <li>Conversion uplift +18%</li>
+        <li>Throughput doubled</li>
+      </ul>
+    </div>
+  </body>
+</html>

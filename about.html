@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,viewport-fit=cover"
+    />
+    <title>About — Victor Etaduovie | Code Portfolio</title>
+
+    <!-- Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #071021;
+        --card: #0d1622;
+        --glass: rgba(255, 255, 255, 0.03);
+        --accent: #7bdff6;
+        --accent2: #8a7dfc;
+        --muted: rgba(232, 240, 255, 0.7);
+        --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono",
+          monospace;
+        --radius: 12px;
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial;
+        background: radial-gradient(
+            1200px 600px at 10% 10%,
+            rgba(138, 125, 252, 0.03),
+            transparent 8%
+          ),
+          radial-gradient(
+            1000px 500px at 90% 90%,
+            rgba(123, 223, 246, 0.02),
+            transparent 10%
+          ),
+          var(--bg);
+        color: #e6f0ff;
+        -webkit-font-smoothing: antialiased;
+      }
+      .container-xl {
+        max-width: 1200px;
+        padding: 28px;
+      }
+
+      /* header */
+      header.page-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 18px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .brand .logo {
+        width: 52px;
+        height: 52px;
+        border-radius: 10px;
+        background: linear-gradient(135deg, var(--accent), var(--accent2));
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #041423;
+        font-weight: 800;
+        font-size: 18px;
+      }
+      .brand .title {
+        font-weight: 800;
+        font-size: 18px;
+      }
+      .nav-mini {
+        color: var(--muted);
+        font-size: 13px;
+      }
+      .tagline {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* main grid */
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 420px;
+        gap: 28px;
+        align-items: start;
+      }
+      @media (max-width: 940px) {
+        .grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* left column (content) */
+      .card {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: var(--radius);
+        padding: 20px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        box-shadow: 0 12px 60px rgba(2, 6, 23, 0.6);
+      }
+
+      /* code-ish tag heading */
+      .code-tag {
+        font-family: var(--mono);
+        color: var(--accent);
+        font-size: 13px;
+        margin-bottom: 6px;
+      }
+      h2.section-title {
+        font-size: 20px;
+        margin: 6px 0 10px 0;
+      }
+      p.lead {
+        color: var(--muted);
+        margin-bottom: 12px;
+      }
+
+      /* tech matrix table */
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+      }
+      @media (max-width: 700px) {
+        .tech-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .tech-item {
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 10px;
+        padding: 12px;
+        font-weight: 700;
+        color: var(--muted);
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        border: 1px solid rgba(255, 255, 255, 0.02);
+      }
+      .tech-item svg {
+        width: 28px;
+        height: 28px;
+        flex-shrink: 0;
+        opacity: 0.95;
+      }
+
+      /* metrics */
+      .metrics {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .metric {
+        background: rgba(255, 255, 255, 0.02);
+        padding: 12px 14px;
+        border-radius: 10px;
+        min-width: 120px;
+        text-align: center;
+      }
+      .metric .num {
+        font-weight: 800;
+        font-size: 18px;
+        color: var(--accent);
+      }
+      .metric .label {
+        color: var(--muted);
+        font-size: 13px;
+      }
+
+      /* project gallery */
+      .filters {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-bottom: 12px;
+      }
+      .filter-btn {
+        background: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        color: var(--muted);
+        padding: 8px 10px;
+        border-radius: 8px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .filter-btn.active {
+        color: #041423;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        border: 0;
+      }
+
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+      @media (max-width: 1100px) {
+        .projects-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (max-width: 700px) {
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .proj {
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        border-radius: 10px;
+        padding: 12px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+      }
+      .proj .thumb {
+        background: linear-gradient(
+          90deg,
+          rgba(255, 255, 255, 0.02),
+          rgba(255, 255, 255, 0.01)
+        );
+        height: 120px;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 13px;
+      }
+
+      .proj .meta {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 8px;
+        margin-top: auto;
+      }
+      .tag {
+        font-size: 12px;
+        padding: 6px 8px;
+        border-radius: 8px;
+        background: rgba(255, 255, 255, 0.02);
+        color: var(--muted);
+        font-weight: 700;
+      }
+
+      /* case studies (expandable) */
+      .case-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 12px;
+      }
+      .case-card {
+        background: rgba(255, 255, 255, 0.02);
+        border-radius: 10px;
+        padding: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+      }
+      .case-head {
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+        align-items: center;
+      }
+      .case-body {
+        margin-top: 10px;
+        color: var(--muted);
+        display: none;
+        font-size: 14px;
+      }
+      .case-card.open .case-body {
+        display: block;
+      }
+
+      /* skills & toolbox */
+      .skill-row {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 12px;
+      }
+      .skill-name {
+        width: 160px;
+        font-weight: 700;
+        color: var(--muted);
+        font-family: var(--mono);
+        font-size: 13px;
+      }
+      .bar {
+        flex: 1;
+        height: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 8px;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.02);
+      }
+      .bar > i {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background: linear-gradient(90deg, var(--accent), var(--accent2));
+        width: 0%;
+        display: block;
+        border-radius: 8px;
+      }
+
+      /* toolbox icons row */
+      .tools {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-top: 12px;
+      }
+      .tool {
+        background: rgba(255, 255, 255, 0.02);
+        padding: 10px;
+        border-radius: 8px;
+        min-width: 88px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid rgba(255, 255, 255, 0.03);
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .tool svg {
+        width: 28px;
+        height: 28px;
+      }
+
+      /* small code snippets */
+      pre.code {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 12px;
+        border-radius: 8px;
+        color: #dff3ff;
+        font-family: var(--mono);
+        font-size: 13px;
+        overflow: auto;
+        border: 1px solid rgba(255, 255, 255, 0.02);
+      }
+
+      footer.site-footer {
+        margin-top: 18px;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+        padding: 18px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container-xl">
+      <!-- header -->
+      <header class="page-header">
+        <div class="brand">
+          <div class="logo">VE</div>
+          <div>
+            <div class="title">Akpevwe Victor Etaduovie</div>
+            <div class="tagline">
+              Full-Stack Developer — Laravel • PHP • MySQL • Flutter
+            </div>
+          </div>
+        </div>
+        <div class="nav-mini">
+          &lt;about&gt; / &lt;work&gt; / &lt;case-studies&gt; / &lt;skills&gt;
+        </div>
+      </header>
+
+      <main class="grid">
+        <!-- LEFT: content -->
+        <section>
+          <!-- ABOUT (short + long) -->
+          <article class="card" id="about">
+            <div class="code-tag">&lt;about&gt;</div>
+            <h2 class="section-title">About — Short &amp; Long</h2>
+
+            <p class="lead">
+              <strong>Short:</strong> I build production-grade web backends and
+              cross-platform mobile apps focused on performance, security and
+              business outcomes.
+            </p>
+
+            <p class="lead">
+              <strong>Long:</strong> With experience across Laravel-based APIs,
+              PHP & MySQL systems, and Flutter mobile apps, I architect and ship
+              scalable solutions — from database indexing and queue-based
+              processing to offline-first mobile sync. I combine pragmatic
+              engineering, test-driven development, and measurable results
+              (performance and conversion improvements) to deliver software that
+              lasts.
+            </p>
+
+            <div class="metrics" aria-hidden="false" role="list">
+              <div class="metric" role="listitem">
+                <div class="num">8+</div>
+                <div class="label">Years Experience</div>
+              </div>
+              <div class="metric" role="listitem">
+                <div class="num">50+</div>
+                <div class="label">Projects Delivered</div>
+              </div>
+              <div class="metric" role="listitem">
+                <div class="num">100k+</div>
+                <div class="label">Users Served (aggregate)</div>
+              </div>
+            </div>
+          </article>
+
+          <!-- WORK / PROJECTS (gallery with filters) -->
+          <article class="card" id="work" style="margin-top: 18px">
+            <div class="code-tag">&lt;work / projects&gt;</div>
+            <h2 class="section-title">Work — Projects Gallery</h2>
+            <p class="lead">
+              Filter projects by stack or type. Click a project to view a short
+              summary and case link.
+            </p>
+
+            <div class="filters" role="toolbar" aria-label="Project filters">
+              <button class="filter-btn active" data-filter="all">All</button>
+              <button class="filter-btn" data-filter="laravel">Laravel</button>
+              <button class="filter-btn" data-filter="flutter">Flutter</button>
+              <button class="filter-btn" data-filter="frontend">
+                Frontend
+              </button>
+              <button class="filter-btn" data-filter="ecommerce">
+                E-commerce
+              </button>
+            </div>
+
+            <div class="projects-grid" id="projectsGrid">
+              <!-- Example project cards -->
+              <div class="proj" data-tags="laravel,ecommerce">
+                <div class="thumb">
+                  &lt;E-Commerce: Inventory & Checkout / Laravel / Stripe&gt;
+                </div>
+                <div style="font-weight: 800">E-Commerce Platform</div>
+                <div style="color: var(--muted); font-size: 13px">
+                  Checkout optimization, Stripe integration, Redis caching
+                </div>
+                <div class="meta">
+                  <div class="tag">Laravel</div>
+                  <a href="#case-ecom" class="tag view-case" data-case="ecom"
+                    >Case</a
+                  >
+                </div>
+              </div>
+
+              <div class="proj" data-tags="flutter,frontend">
+                <div class="thumb">
+                  &lt;Mobile App: Offline-First Bible / Flutter&gt;
+                </div>
+                <div style="font-weight: 800">Offline-First Flutter App</div>
+                <div style="color: var(--muted); font-size: 13px">
+                  Local DB sync, cached media, responsive UX
+                </div>
+                <div class="meta">
+                  <div class="tag">Flutter</div>
+                  <a href="#case-bible" class="tag view-case" data-case="bible"
+                    >Case</a
+                  >
+                </div>
+              </div>
+
+              <div class="proj" data-tags="frontend,ajax">
+                <div class="thumb">
+                  &lt;Admin Panel / Dashboard (AJAX) / Bootstrap&gt;
+                </div>
+                <div style="font-weight: 800">Admin Dashboard</div>
+                <div style="color: var(--muted); font-size: 13px">
+                  Realtime updates, AJAX-driven filters, Bootstrap UI
+                </div>
+                <div class="meta">
+                  <div class="tag">Bootstrap</div>
+                  <a href="#case-admin" class="tag view-case" data-case="admin"
+                    >Case</a
+                  >
+                </div>
+              </div>
+              <!-- add more .proj blocks as needed -->
+            </div>
+          </article>
+
+          <!-- CASE STUDIES (deep dives) -->
+          <article class="card" id="case-studies" style="margin-top: 18px">
+            <div class="code-tag">&lt;case-studies&gt;</div>
+            <h2 class="section-title">Selected Case Studies (deep dives)</h2>
+            <p class="lead">
+              Each case contains Problem → Role → Architecture → Implementation
+              → Outcome.
+            </p>
+
+            <div class="case-list">
+              <div class="case-card" id="case-ecom">
+                <div class="case-head">
+                  <div>
+                    <div style="font-weight: 800">
+                      E-Commerce Platform — Laravel + MySQL + Stripe
+                    </div>
+                    <div style="color: var(--muted); font-size: 13px">
+                      Problem: High cart abandonment; slow checkout
+                    </div>
+                  </div>
+                  <button class="tag toggle-case" aria-expanded="false">
+                    View
+                  </button>
+                </div>
+                <div class="case-body">
+                  <p>
+                    <strong>Role:</strong> Lead backend & mobile integration
+                    (solo dev, 8 weeks).
+                  </p>
+                  <p>
+                    <strong>Architecture:</strong> Laravel APIs (Sanctum), MySQL
+                    (indexes/partitions), Redis caching, queue workers for email
+                    & receipts, Stripe webhooks.
+                  </p>
+                  <pre class="code">
+&lt;implementation&gt;
+- Eager loading to fix N+1
+- Redis cache for product lookups
+- Queued jobs for receipts & notifications
+- Stripe webhooks with retry & idempotency keys
+&lt;/implementation&gt;</pre
+                  >
+                  <p>
+                    <strong>Outcome:</strong> Checkout latency down 65%;
+                    conversion up 18%; throughput doubled.
+                  </p>
+                </div>
+              </div>
+
+              <div class="case-card" id="case-bible">
+                <div class="case-head">
+                  <div>
+                    <div style="font-weight: 800">
+                      Offline-First Mobile App — Flutter
+                    </div>
+                    <div style="color: var(--muted); font-size: 13px">
+                      Problem: Users need full offline access + media
+                    </div>
+                  </div>
+                  <button class="tag toggle-case" aria-expanded="false">
+                    View
+                  </button>
+                </div>
+                <div class="case-body">
+                  <p><strong>Role:</strong> Full-stack & mobile (3 months).</p>
+                  <p>
+                    <strong>Highlights:</strong> Local DB (sqflite), background
+                    sync, cached_network_image, delta updates, small APK
+                    distribution.
+                  </p>
+                  <pre class="code">
+&lt;sync&gt;
+- Local DB schema with version migrations
+- Background isolate to sync updates
+- Efficient delta patches for content updates
+&lt;/sync&gt;</pre
+                  >
+                  <p>
+                    <strong>Outcome:</strong> App works offline seamlessly;
+                    average session length +32%.
+                  </p>
+                </div>
+              </div>
+
+              <div class="case-card" id="case-admin">
+                <div class="case-head">
+                  <div>
+                    <div style="font-weight: 800">
+                      Admin Dashboard — AJAX & Bootstrap
+                    </div>
+                    <div style="color: var(--muted); font-size: 13px">
+                      Problem: Slow admin workflows
+                    </div>
+                  </div>
+                  <button class="tag toggle-case" aria-expanded="false">
+                    View
+                  </button>
+                </div>
+                <div class="case-body">
+                  <p>
+                    <strong>Solution:</strong> AJAX-based tables, incremental
+                    loading, debounced search, server-side pagination.
+                  </p>
+                  <pre class="code">
+&lt;ajax&gt;
+fetch('/api/posts?page=1&query=...').then(...)
+&lt;/ajax&gt;</pre
+                  >
+                  <p>
+                    <strong>Outcome:</strong> Admin task completion time -40%;
+                    perceived responsiveness much improved.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <!-- RIGHT: Skills & Toolbox side rail -->
+        <aside>
+          <div class="card">
+            <div class="code-tag">&lt;skills &amp; toolbox&gt;</div>
+            <h2 class="section-title">Core Specialties</h2>
+            <p class="lead">
+              Backend architecture, API design, Flutter mobile apps,
+              offline-first strategies, performance tuning and secure payment
+              flows.
+            </p>
+
+            <h3 style="margin-top: 12px; font-size: 15px">
+              Technology Proficiency
+            </h3>
+            <div style="margin-top: 8px">
+              <div class="skill-row">
+                <div class="skill-name">Laravel / PHP</div>
+                <div class="bar"><i data-value="90" style="width: 0%"></i></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-name">MySQL (schema & tuning)</div>
+                <div class="bar"><i data-value="86" style="width: 0%"></i></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-name">Flutter / Dart</div>
+                <div class="bar"><i data-value="85" style="width: 0%"></i></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-name">HTML / CSS / JS</div>
+                <div class="bar"><i data-value="88" style="width: 0%"></i></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-name">Bootstrap / AJAX</div>
+                <div class="bar"><i data-value="82" style="width: 0%"></i></div>
+              </div>
+              <div class="skill-row">
+                <div class="skill-name">DevOps / CI</div>
+                <div class="bar"><i data-value="70" style="width: 0%"></i></div>
+              </div>
+            </div>
+
+            <h3 style="margin-top: 14px; font-size: 15px">Toolbox</h3>
+            <div class="tools">
+              <div class="tool">
+                <!-- Git icon -->
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M14 3v4.18A3 3 0 1 1 13 11v2.82A3 3 0 1 1 11 19V9"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                  />
+                </svg>
+                Git
+              </div>
+
+              <div class="tool">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="3"
+                    y="4"
+                    width="18"
+                    height="16"
+                    rx="2"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                </svg>
+                Docker
+              </div>
+
+              <div class="tool">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M3 6h18M3 12h18M3 18h18"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+                REST APIs
+              </div>
+
+              <div class="tool">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle
+                    cx="12"
+                    cy="12"
+                    r="9"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                </svg>
+                Redis
+              </div>
+
+              <div class="tool">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="3"
+                    y="3"
+                    width="18"
+                    height="18"
+                    rx="2"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                  />
+                </svg>
+                MySQL
+              </div>
+            </div>
+
+            <h3 style="margin-top: 14px; font-size: 15px">Sample Snippet</h3>
+            <pre class="code">
+&lt;!-- Example: Laravel route + controller snippet --&gt;
+Route::post('/checkout', [CheckoutController::class,'charge']);
+public function charge(Request $r){
+  $r->validate([...]);
+  dispatch(new ProcessPayment($r->all())); // queued
+  return response()->json(['status'=>'queued']);
+}</pre
+            >
+          </div>
+
+          <div style="height: 18px"></div>
+
+          <div class="card">
+            <div class="code-tag">&lt;screenshots / artifacts&gt;</div>
+            <h2 class="section-title">Screenshots</h2>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 8px;
+                margin-top: 8px;
+              "
+            >
+              <div
+                style="
+                  background: rgba(255, 255, 255, 0.02);
+                  border-radius: 8px;
+                  padding: 10px;
+                  text-align: center;
+                  font-family: var(--mono);
+                  color: var(--muted);
+                "
+              >
+                [project-screenshot-1]
+              </div>
+              <div
+                style="
+                  background: rgba(255, 255, 255, 0.02);
+                  border-radius: 8px;
+                  padding: 10px;
+                  text-align: center;
+                  font-family: var(--mono);
+                  color: var(--muted);
+                "
+              >
+                [project-screenshot-2]
+              </div>
+            </div>
+            <p style="color: var(--muted); font-size: 13px; margin-top: 8px">
+              Tip: replace the placeholders with 1280×720 screenshots for best
+              results.
+            </p>
+          </div>
+        </aside>
+      </main>
+
+      <footer class="site-footer">
+        <div>
+          &lt;footer&gt; — Victor Etaduovie — available for remote roles &amp;
+          freelance — email: you@domain.com &lt;/footer&gt;
+        </div>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      // Basic interactive behaviors: filters, expand/case, and animate skill bars
+      (function(){
+        // Filters
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projects = Array.from(document.querySelectorAll('.proj'));
+
+        filterBtns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            const f = btn.dataset.filter;
+            projects.forEach(p => {
+              const tags = p.dataset.tags.split(',');
+              if (f === 'all' || tags.includes(f)) p.style.display = '';
+              else p.style.display = 'none';
+            });
+          });
+        });
+
+        // Case-studies toggle
+        document.querySelectorAll('.toggle-case').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const card = btn.closest('.case-card');
+            const open = card.classList.toggle('open');
+            btn.textContent = open ? 'Close' : 'View';
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+            // smooth scroll into view when opening
+            if (open) card.scrollIntoView({ behavior:'smooth', block:'center' });
+          });
+        });
+
+        // View-case links open matching case
+        document.querySelectorAll('.view-case').forEach(link => {
+          link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const key = link.dataset.case;
+            const target = document.getElementById('case-' + key);
+            if (target) {
+              // open if not open
+              if (!target.classList.contains('open')) {
+                target.classList.add('open');
+                target.querySelector('.toggle-case')?.setAttribute('aria-expanded','true');
+                target.querySelector('.toggle-case')?.textContent = 'Close';
+              }
+              target.scrollIntoView({ behavior:'smooth', block:'center' });
+            }
+          });
+        });
+
+        // Animate skill bars on viewport enter
+        const bars = document.querySelectorAll('.bar > i');
+        function animateBars() {
+          bars.forEach(b => {
+            const val = b.getAttribute('data-value') || '60';
+            b.style.width = val + '%';
+          });
+        }
+        // trigger once when skills section visible
+        const skillsCard = document.querySelector('aside .card');
+        if ('IntersectionObserver' in window) {
+          const io = new IntersectionObserver((entries, obs) => {
+            entries.forEach(en => {
+              if (en.isIntersecting) {
+                animateBars();
+                obs.disconnect();
+              }
+            });
+          }, { threshold: 0.25 });
+          if (skillsCard) io.observe(skillsCard);
+        } else {
+          animateBars();
+        }
+
+      })();
+    </script>
+  </body>
+</html>
