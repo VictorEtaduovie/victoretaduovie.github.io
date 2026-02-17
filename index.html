@@ -1181,6 +1181,7 @@
           <form
             id="contactForm"
             class="contact-form"
+            action="https://formspree.io/f/xkovbdpr"
             method="post"
             novalidate
             aria-describedby="contact-desc"
@@ -1211,7 +1212,7 @@
                 id="email"
                 name="email"
                 type="email"
-                placeholder="victoretad@gmail.com *"
+                placeholder="Your Email *"
                 required
                 autocomplete="email"
               />
@@ -1292,7 +1293,7 @@
               </svg>
               <div class="status-text">
                 <strong>Message sent.</strong>
-                <div class="small">I'll reply within 48 hours.</div>
+                <div class="small">I'll reply as soon as possible.</div>
               </div>
             </div>
 
@@ -1530,9 +1531,8 @@
             <form
               id="footerSubscribe"
               class="subscribe-form"
-              action="#"
+              action="https://formspree.io/f/xkovbdpr"
               method="POST"
-              novalidate
             >
               <label for="subEmail" class="sr-only">Email address</label>
               <input
@@ -1732,7 +1732,7 @@
         <form
           id="quoteModalForm"
           class="quote-form"
-          action="/contact/quote"
+          action="https://formspree.io/f/xkovbdpr"
           method="post"
           enctype="multipart/form-data"
           novalidate
@@ -1766,7 +1766,7 @@
               <label for="q_desc">Project summary / requirements</label>
               <textarea
                 id="q_desc"
-                name="description"
+                name="message"
                 placeholder="Describe goals, platform, key features..."
                 required
               ></textarea>
@@ -1824,11 +1824,12 @@
               Cancel
             </button>
             <div
+            class="quote-text"
               id="quoteSpinner"
               aria-hidden="true"
               style="margin-left: auto; color: var(--muted); font-size: 0.95rem"
             >
-              You’ll receive a reply within 48 hours.
+              You’ll receive a reply shortly.
             </div>
           </div>
 
@@ -1838,7 +1839,7 @@
             role="status"
             aria-hidden="true"
           >
-            ✅ Thanks. Your request has been sent. I’ll reply within 48 hours.
+            ✅ Thanks. Your request has been sent. I’ll reply as soon as possible.
           </div>
         </form>
       </div>
@@ -1982,7 +1983,7 @@
           setTimeout(() => {
             success.setAttribute("aria-hidden", "false");
             success.style.display = "block";
-            spinnerNote.textContent = "You’ll receive a reply within 48 hours.";
+            spinnerNote.textContent = "You’ll receive a reply shortly.";
             form.querySelector('button[type="submit"]').disabled = false;
             form.reset();
             // keep modal open so user sees success; auto-close after 2.2s (optional)
@@ -3135,7 +3136,7 @@ if (nextBtn) {
         // Show status
         function showStatus(
           success = true,
-          text = "Message sent. I will reply within 48 hours."
+          text = "Message sent. I will reply as soon as possible."
         ) {
           statusNode.hidden = false;
           statusNode.classList.toggle("success", success);
@@ -3143,7 +3144,7 @@ if (nextBtn) {
             ? "Message sent."
             : "Message failed";
           statusNode.querySelector(".status-text .small").textContent = success
-            ? "I'll reply within 48 hours."
+            ? "I'll reply shortly."
             : text;
           // simple animation: fade then hide after 6s on success
           if (success) {
@@ -3236,8 +3237,8 @@ if (nextBtn) {
             document.getElementById("message"),
           ];
           const texts = [
-            "Victor Etaduovie *",
-            "victoretad@gmail.com *",
+            "Your Name *",
+            "Your Email *",
             "Project / subject",
             "Brief message - goals, budget, timeline (approx.) *",
           ];
