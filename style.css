@@ -389,14 +389,7 @@ h1.title {
   font-family: inherit;
 }
 
-.input-cmd{
- border: 2px solid gray;
- border-radius: 2px;
-}
-.email-cmd{
- border: 2px solid gray;
- border-radius: 2px;
-}
+
 .chip {
   font-family: ui-monospace, monospace;
   font-size: 12px;
@@ -715,6 +708,15 @@ input:focus {
   grid-template-columns: 1fr 1fr;
   gap: 12px;
 }
+
+@media (max-width: 480px) {
+  .matrix-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+  
+}
 .matrix-item {
   background: rgba(255, 255, 255, 0.02);
   padding: 10px;
@@ -768,6 +770,7 @@ input:focus {
   gap: 12px;
 }
 
+
 .svc-filter {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -786,11 +789,21 @@ input:focus {
   transform: translateY(-1px);
 }
 
+
 .svc-filter.active {
   background: var(--accent) !important;
   color: #041423;
   border: none;
   box-shadow: 0 4px 0px #5bc8e1, 0 8px 15px rgba(123, 223, 246, 0.2);
+}
+
+@media (max-width: 480px) {
+  .svc-filter {
+    
+    padding: 4px 8px;
+    border-radius: 5px;
+    font-weight: 500;
+  }
 }
 
 /* ====== THE SERVICE CARD (Tactile Module) ====== */
