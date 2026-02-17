@@ -33,6 +33,8 @@ button {
   cursor: pointer;
 }
 
+
+/* Canvas background full-screen */
 /* Canvas background full-screen */
 #galaxy-canvas {
   position: fixed;
@@ -40,17 +42,14 @@ button {
   z-index: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(
-      ellipse at 10% 10%,
-      rgba(138, 125, 252, 0.06),
-      transparent 10%
-    ),
-    radial-gradient(
-      ellipse at 90% 80%,
-      rgba(123, 223, 246, 0.04),
-      transparent 12%
-    ),
-    linear-gradient(180deg, rgba(6, 7, 12, 1) 0%, rgba(3, 5, 12, 1) 100%);
+  
+  /* Layer 1: Darkest base */
+  /* Layer 2: Deep Purple Glow (Bottom Right) */
+  /* Layer 3: Soft Teal Nebula (Top Left) */
+  background: 
+    radial-gradient(circle at 80% 80%, rgba(138, 125, 252, 0.12), transparent 40%),
+    radial-gradient(circle at 20% 20%, rgba(123, 223, 246, 0.08), transparent 40%),
+    linear-gradient(135deg, #05070a 0%, #0d0e1a 100%);
 }
 
 /* Header */
@@ -98,6 +97,44 @@ header.site-header {
   margin-top: 4px;
   line-height: 1;
 }
+
+/* Clean up the logo - drop the gradient for a solid, punchy accent color */
+.brand .logo {
+  background: var(--accent);
+  color: #041423;
+  /* Keeping the shadow, but matching it to the new solid color */
+  box-shadow: 0 4px 15px rgba(123, 223, 246, 0.2); 
+}
+
+/* Modern, flat button styles to override any gradients */
+.btn-primary {
+  background-color: var(--accent-2);
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--accent);
+  color: #041423;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(123, 223, 246, 0.25);
+}
+
+.btn-outline {
+  border: 1px solid var(--muted);
+  color: var(--text);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: transparent;
+}
+
 .nav-wrap {
   width: 100%;
   display: flex;
@@ -135,6 +172,8 @@ nav .nav-link:hover {
   padding: 28px 20px 40px 20px;
   box-sizing: border-box;
   min-height: calc(100vh - var(--header-height));
+  
+  
 }
 .hero-inner {
   width: 100%;
@@ -145,6 +184,7 @@ nav .nav-link:hover {
   align-items: center;
   padding: 28px;
   box-sizing: border-box;
+  
 }
 
 /* Responsive grid -> single column on smaller viewports */
@@ -161,18 +201,19 @@ nav .nav-link:hover {
 }
 
 /* Hero card */
+/* Hero card - Sharper, cleaner glass effect */
 .hero-card {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.03),
-    rgba(255, 255, 255, 0.02)
-  );
-  border-radius: 18px;
-  padding: 32px;
-  text-align: left;
-  box-shadow: 0 12px 60px rgba(2, 6, 23, 0.7);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  min-height: 260px;
+  background: rgba(15, 23, 33, 0.2);
+  backdrop-filter: blur(12px); /* Makes it feel like real glass */
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 40px;
+  border: 1px solid rgba(255, 255, 255, 0.08); /* More visible border */
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 125, 252, 0.4);
+  
 }
 .eyebrow {
   color: var(--accent);
@@ -199,13 +240,13 @@ h1.title {
   margin-top: 12px;
 }
 .skill-tag {
-  background: rgba(255, 255, 255, 0.02);
-  padding: 6px 10px;
-  border-radius: 10px;
-  font-weight: 700;
-  color: var(--muted);
-  font-size: 13px;
-  border: 1px solid rgba(255, 255, 255, 0.02);
+  background: rgba(123, 223, 246, 0.08); /* Tiny hint of your accent color */
+  padding: 6px 12px;
+  border-radius: 8px;
+  color: var(--accent); /* Makes the text pop */
+  font-size: 12px;
+  border: 1px solid rgba(123, 223, 246, 0.2);
+  letter-spacing: 0.5px;
 }
 
 .ctas {
@@ -214,54 +255,109 @@ h1.title {
   margin-top: 18px;
   flex-wrap: wrap;
 }
+/* Updated Button Styles - No more muddy gradients */
+/* Primary 3D Button */
 .btn-primary {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  border: none;
-  color: #041423;
+  position: relative;
+  background: var(--accent) !important;
+  color: #05060b !important;
   font-weight: 800;
-  padding: 12px 18px;
+  padding: 12px 24px;
   border-radius: 10px;
-  box-shadow: 0 8px 30px rgba(138, 125, 252, 0.12);
-}
-.btn-outline {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  color: var(--text);
-  padding: 12px 18px;
-  border-radius: 10px;
-  font-weight: 700;
+  border: none;
+  
+  /* The "Thickness" of the button */
+  box-shadow: 0 4px 0px #5bc8e1, /* Darker bottom edge for depth */
+              0 8px 15px rgba(0, 0, 0, 0.3); /* Soft drop shadow */
+  
+  transition: all 0.1s ease; /* Fast transition for a snappy click */
+  transform: translateY(-2px); /* Lift it up slightly by default */
 }
 
+.btn-primary:hover {
+  transform: translateY(-3px); /* Lift higher on hover */
+  box-shadow: 0 5px 0px #5bc8e1, 
+              0 12px 20px rgba(123, 223, 246, 0.2);
+}
+
+.btn-primary:active {
+  transform: translateY(2px); /* Push down on click */
+  box-shadow: 0 0px 0px #5bc8e1, /* Shadow disappears when "pressed" */
+              0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Outline 3D Button (Glass-style) */
+.btn-outline {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  padding: 12px 24px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
+  
+  box-shadow: 0 4px 0px rgba(255, 255, 255, 0.1),
+              0 8px 15px rgba(0, 0, 0, 0.3);
+              
+  transition: all 0.1s ease;
+  transform: translateY(-2px);
+}
+
+.btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-3px);
+}
+
+.btn-outline:active {
+  transform: translateY(2px);
+  box-shadow: 0 0px 0px rgba(255, 255, 255, 0.1);
+}
 /* Right-side panel (console) */
+/* Console Panel - Making it look like an actual terminal */
 .panel {
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.01)
-  );
-  border-radius: 14px;
-  padding: 18px;
-  height: 100%;
+  background: rgba(15, 23, 33, 0.2);
+  backdrop-filter: blur(10px); /* Blurs the background behind the console */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 125, 252, 0.4);
+  border-radius: 16px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  color: var(--muted);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  box-shadow: 0 10px 40px rgba(2, 6, 23, 0.6);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), 
+              inset 0 0 20px rgba(138, 125, 252, 0.05);
 }
 .panel h3 {
   margin: 0 0 6px 0;
   color: var(--text);
   font-size: 16px;
 }
+/* Fixed-height console with internal scrolling */
 .prompt {
-  background: rgba(2, 6, 23, 0.66);
+  background: rgba(2, 6, 23, 0.8);
   border-radius: 8px;
-  padding: 12px;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  padding: 16px;
+  font-family: 'Fira Code', ui-monospace, monospace;
   color: #dff3ff;
   font-size: 14px;
-  min-height: 140px;
-  overflow: auto;
+  
+  /* The Fix: Height constraints */
+  height: 200px; /* Adjust this to your preferred height */
+  overflow-y: auto; /* Adds scrollbar only when text overflows */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* Professional Thin Scrollbar */
+.prompt::-webkit-scrollbar {
+  width: 6px;
+}
+.prompt::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.02);
+}
+.prompt::-webkit-scrollbar-thumb {
+  background: var(--accent-2);
+  border-radius: 10px;
 }
 .prompt .line {
   margin-bottom: 8px;
@@ -291,6 +387,15 @@ h1.title {
   color: var(--muted);
   outline: none;
   font-family: inherit;
+}
+
+.input-cmd{
+ border: 2px solid gray;
+ border-radius: 2px;
+}
+.email-cmd{
+ border: 2px solid gray;
+ border-radius: 2px;
 }
 .chip {
   font-family: ui-monospace, monospace;
@@ -487,8 +592,10 @@ input:focus {
 
 .ve-section {
   position: relative;
-  padding: 64px 0;
+  padding: 100px 0; /* More whitespace = more professional */
   z-index: 2;
+  /* Subtle glow behind the section to break the black void */
+  background: radial-gradient(circle at 50% 50%, rgba(138, 125, 252, 0.03) 0%, transparent 70%);
 }
 .container {
   max-width: 1200px;
@@ -499,8 +606,16 @@ input:focus {
 
 .about-inner {
   display: flex;
-  gap: 28px;
-  align-items: flex-start;
+  gap: 48px;
+  align-items: center; /* Centered looks more balanced */
+  background: rgba(15, 23, 33, 0.2);
+  backdrop-filter: blur(10px); /* Blurs the background behind the console */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 125, 252, 0.4);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), 
+              inset 0 0 20px rgba(138, 125, 252, 0.05);
 }
 .about-left {
   flex: 1;
@@ -512,17 +627,20 @@ input:focus {
 }
 
 .code-tag {
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-  color: #7bdff6;
-  margin-bottom: 6px;
-  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  color: var(--accent);
+  opacity: 0.9;
 }
 
+/* Typography Polish */
 .ve-h2 {
-  font-size: 22px;
-  margin: 0 0 8px 0;
+  font-size: 32px; /* Bigger, bolder */
+  margin: 0 0 16px 0;
   font-weight: 800;
-  color: #e8f0ff;
+  color: #ffffff;
+  letter-spacing: -0.5px;
 }
 
 .about-short,
@@ -545,36 +663,57 @@ input:focus {
   cursor: pointer;
   font-family: inherit;
 }
+.ve-btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+  font-size: 14px;
+  transition: all 0.2s;
+}
 
+.ve-btn-link::after {
+  content: '→';
+  transition: transform 0.2s;
+}
+
+.ve-btn-link:hover::after {
+  transform: translateX(5px);
+}
+
+/* ====== METRICS (3D Tactical Look) ====== */
 .about-metrics {
   display: flex;
-  gap: 12px;
-  margin-top: 18px;
-  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
 }
 .metric {
-  background: rgba(255, 255, 255, 0.02);
-  padding: 10px 12px;
-  border-radius: 10px;
-  min-width: 88px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 16px;
+  border-radius: 12px;
+  flex: 1;
   text-align: center;
-  border: 1px solid rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.1); /* Inner highlight */
+  transition: transform 0.3s ease;
 }
 .metric .m-num {
+  font-size: 24px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
   font-weight: 800;
-  color: var(--accent);
-  font-size: 18px;
 }
 .metric .m-label {
   color: rgba(232, 240, 255, 0.72);
   font-size: 12px;
 }
 
+/* ====== TECH MATRIX (Professional Chips) ====== */
 .matrix-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-top: 10px;
+  gap: 12px;
 }
 .matrix-item {
   background: rgba(255, 255, 255, 0.02);
@@ -588,39 +727,77 @@ input:focus {
   font-weight: 700;
 }
 
-/* ===== Services section styles (add to style.css) ===== */
-.services-section {
-  padding: 72px 0;
-  position: relative;
-  z-index: 3;
-}
-.services-controls {
-  margin-top: 10px;
+.matrix-item {
+  background: rgba(123, 223, 246, 0.03);
+  padding: 14px 18px;
+  border-radius: 12px;
   display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-}
-.svc-filter {
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  color: var(--muted);
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-weight: 800;
-  cursor: pointer;
-}
-.svc-filter.active {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  color: #041423;
-  border: 0;
+  justify-content: space-between;
+  border: 1px solid rgba(123, 223, 246, 0.1);
+  color: var(--text);
+  font-size: 14px;
+  transition: all 0.2s ease;
 }
 
-/* grid */
+.matrix-item:hover {
+  background: rgba(123, 223, 246, 0.08);
+  border-color: var(--accent);
+  box-shadow: 0 0 15px rgba(123, 223, 246, 0.15);
+}
+
+.matrix-item span {
+  font-size: 11px;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(123, 223, 246, 0.1);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+/* ===== Services section styles (add to style.css) ===== */
+/* ====== SERVICES SECTION REFINEMENT ====== */
+.services-section {
+  padding: 100px 0;
+  background: radial-gradient(circle at 10% 90%, rgba(123, 223, 246, 0.03) 0%, transparent 50%);
+}
+
+/* 3D Filter Buttons */
+.services-controls {
+  margin: 32px 0;
+  display: flex;
+  gap: 12px;
+}
+
+.svc-filter {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--muted);
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 3px 0px rgba(0, 0, 0, 0.2);
+}
+
+.svc-filter:hover {
+  border-color: var(--accent);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+
+.svc-filter.active {
+  background: var(--accent) !important;
+  color: #041423;
+  border: none;
+  box-shadow: 0 4px 0px #5bc8e1, 0 8px 15px rgba(123, 223, 246, 0.2);
+}
+
+/* ====== THE SERVICE CARD (Tactile Module) ====== */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 18px;
-  margin-top: 18px;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
 }
 @media (max-width: 1000px) {
   .services-grid {
@@ -635,77 +812,61 @@ input:focus {
 
 /* card */
 .svc-card {
-  position: relative;
-  overflow: hidden;
-  border-radius: 14px;
-  min-height: 220px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 30px;
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.01)
-  );
-  box-shadow: 0 18px 60px rgba(2, 6, 23, 0.6);
-  padding: 18px;
-  transition: transform 0.28s, box-shadow 0.28s;
-  cursor: pointer;
-  will-change: transform;
-}
-.svc-card:focus {
-  outline: 2px dashed rgba(123, 223, 246, 0.18);
-  outline-offset: 6px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
-/* decorative diagonal glow */
-.svc-deco {
-  position: absolute;
-  inset: auto -30% -40% auto;
-  width: 180%;
-  height: 180%;
-  transform: rotate(-18deg);
-  pointer-events: none;
-  opacity: 0.06;
-  background: linear-gradient(
-    90deg,
-    rgba(123, 223, 246, 0.12),
-    rgba(138, 125, 252, 0.12)
-  );
+.svc-card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent-2);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 
+              0 0 20px rgba(138, 125, 252, 0.1);
 }
 
-/* icon */
+/* Icon Glow Effect */
 .svc-icon {
-  width: 56px;
-  height: 56px;
-  border-radius: 10px;
+  width: 64px;
+  height: 64px;
+  background: rgba(123, 223, 246, 0.1);
+  color: var(--accent);
+  border-radius: 16px;
+  margin-bottom: 20px;
+  border: 1px solid rgba(123, 223, 246, 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.02);
-  color: var(--accent);
-  font-weight: 800;
-  margin-bottom: 12px;
+  transition: all 0.3s ease;
 }
 
-/* body */
-.svc-body {
-  flex: 1;
-  z-index: 2;
+.svc-card:hover .svc-icon {
+  background: var(--accent);
+  color: #041423;
+  box-shadow: 0 0 20px var(--accent);
 }
+
+/* Typography Hierarchy */
 .svc-title {
-  font-family: ui-monospace, monospace;
-  margin: 0 0 8px 0;
-  color: var(--accent);
-  font-size: 16px;
-  font-weight: 900;
+  font-size: 18px;
+  color: #ffffff;
+  margin-bottom: 12px;
+  font-family: 'Fira Code', monospace;
 }
+
 .svc-short {
-  margin: 0;
-  color: rgba(232, 240, 255, 0.78);
   font-size: 14px;
-  line-height: 1.4;
+  line-height: 1.6;
+  color: rgba(232, 240, 255, 0.7);
+  margin-bottom: 24px;
 }
+
 
 /* footer */
 .svc-footer {
@@ -715,14 +876,27 @@ input:focus {
   margin-top: 12px;
   z-index: 2;
 }
+
+/* 3D "Request Quote" Button inside card */
 .svc-cta {
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  color: #041423;
-  padding: 8px 12px;
-  border-radius: 10px;
+  display: inline-block;
+  background: var(--accent-2) !important;
+  color: #ffffff !important;
+  padding: 10px 18px;
+  border-radius: 8px;
   font-weight: 800;
   text-decoration: none;
+  font-size: 13px;
+  box-shadow: 0 3px 0px #6a5fd1;
+  transition: all 0.1s;
 }
+
+.svc-cta:active {
+  transform: translateY(2px);
+  box-shadow: 0 0px 0px #6a5fd1;
+}
+
+
 .svc-more {
   background: transparent;
   border: 1px solid rgba(255, 255, 255, 0.04);
@@ -765,19 +939,20 @@ input:focus {
   );
   backdrop-filter: blur(6px);
 }
+/* ====== MODAL / DETAILS PANEL ====== */
 .svc-panel {
+  background: #0d1117; /* Solid dark background for readability */
+  border: 1px solid var(--accent);
+  border-radius: 24px;
+  padding: 40px;
+  width: min(700px, 90vw);
+  box-shadow: 0 0 100px rgba(0, 0, 0, 0.8), 0 0 40px rgba(123, 223, 246, 0.1);
   position: relative;
-  width: min(900px, 96vw);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.01)
-  );
-  border-radius: 12px;
-  padding: 18px;
-  z-index: 2;
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  box-shadow: 0 40px 120px rgba(2, 6, 23, 0.85);
+}
+
+.svc-panel-title {
+    font-size: 24px;
+    margin-bottom: 20px;
 }
 .svc-panel-head {
   display: flex;
@@ -785,12 +960,7 @@ input:focus {
   align-items: flex-start;
   gap: 12px;
 }
-.svc-panel-title {
-  font-family: ui-monospace, monospace;
-  color: var(--accent);
-  margin: 0;
-  font-size: 18px;
-}
+
 .svc-close {
   background: transparent;
   border: 0;
@@ -847,14 +1017,17 @@ input:focus {
   height: 140px;
   background-size: cover;
   background-position: center;
-  opacity: 0.12;
+
+  opacity: 0.88; 
   transform: rotate(-18deg);
-  filter: saturate(0.85) contrast(0.98) blur(0.6px);
+  filter: saturate(1.05) contrast(1.05) blur(1px); 
+
   animation: diagMove linear infinite;
   will-change: transform, opacity;
   border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
 }
+
 
 /* diagonal motion (moves from bottom-left to top-right across screen) */
 @keyframes diagMove {
@@ -1182,15 +1355,15 @@ input:focus {
   border-radius: 14px;
   overflow: hidden;
   position: relative;
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.01)
-  );
-  border: 1px solid rgba(255, 255, 255, 0.04);
-  box-shadow: 0 14px 40px rgba(3, 8, 18, 0.6);
+  border: 1px solid rgba(123, 223, 246, 0.1);
+  background: rgba(15, 23, 33, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), 
+              inset 0 0 20px rgba(138, 125, 252, 0.05);
   display: flex;
   flex-direction: column;
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 125, 252, 0.4);
   cursor: pointer;
   transition: transform 0.28s cubic-bezier(0.2, 0.9, 0.2, 1), box-shadow 0.28s;
   will-change: transform;
@@ -1247,8 +1420,6 @@ input:focus {
 .proj-cta {
   margin-left: auto;
   margin-top: 6px;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.04);
   padding: 6px 10px;
   border-radius: 8px;
   color: var(--muted);
@@ -1287,9 +1458,12 @@ input:focus {
 
 /* Project modal (full-screen) */
 .project-modal {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 125, 252, 0.4);
   position: fixed;
   inset: 0;
-  z-index: 99999;
+  z-index: 999999999;
   display: none;
   align-items: center;
   justify-content: center;
@@ -1299,6 +1473,9 @@ input:focus {
   display: flex;
 }
 .pm-backdrop {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 125, 252, 0.4);
   position: absolute;
   inset: 0;
   background: linear-gradient(
@@ -1309,6 +1486,7 @@ input:focus {
   backdrop-filter: blur(4px);
 }
 .pm-dialog {
+  
   position: relative;
   width: min(1100px, 96vw);
   max-height: 92vh;
@@ -1318,8 +1496,8 @@ input:focus {
   border: 1px solid rgba(255, 255, 255, 0.03);
   background: linear-gradient(
     180deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.01)
+    rgba(255, 233, 233, 0.02),
+    rgba(255, 233, 233, 0.02)
   );
   padding: 18px;
   z-index: 2;
@@ -1433,9 +1611,17 @@ input:focus {
 
 /* ===== Contact section ===== */
 .contact-section {
+ background: rgba(15, 23, 33, 0.2);
+  backdrop-filter: blur(10px); /* Blurs the background behind the console */
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 16px;
+ 
+  flex-direction: column;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), 
+              inset 0 0 20px rgba(138, 125, 252, 0.05);
   padding: 72px 0;
   position: relative;
-  z-index: 3;
+  z-index: 1;
 }
 .contact-grid {
   display: grid;
@@ -1450,7 +1636,15 @@ input:focus {
 }
 
 .contact-info {
-  padding: 8px 6px;
+  padding: 24px;
+   background: rgba(15, 23, 33, 0.2);
+  backdrop-filter: blur(10px); /* Blurs the background behind the console */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 125, 252, 0.4);
+  border-radius: 16px;
+  flex-direction: column;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), 
+              inset 0 0 20px rgba(138, 125, 252, 0.05);
 }
 .contact-info .lead {
   margin-bottom: 16px;
@@ -1505,15 +1699,15 @@ input:focus {
 /* form */
 .contact-form {
   position: relative;
-  padding: 20px;
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  background: linear-gradient(
-    180deg,
-    rgba(255, 255, 255, 0.02),
-    rgba(255, 255, 255, 0.01)
-  );
-  box-shadow: 0 18px 60px rgba(2, 6, 23, 0.6);
+   background: rgba(15, 23, 33, 0.2);
+  backdrop-filter: blur(10px); /* Blurs the background behind the console */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 125, 252, 0.4);
+  border-radius: 16px;
+  padding: 24px;
+  flex-direction: column;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), 
+              inset 0 0 20px rgba(138, 125, 252, 0.05);
   overflow: hidden;
 }
 .form-top {
@@ -1548,6 +1742,27 @@ input:focus {
   color: rgba(232, 240, 255, 0.45);
   font-style: italic;
 }
+/* Update your existing .contact-form input:focus */
+.contact-form input:focus, 
+.contact-form textarea:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(123, 223, 246, 0.03);
+  box-shadow: 0 0 15px rgba(123, 223, 246, 0.08);
+  color: var(--text);
+  transition: all 0.25s ease;
+}
+
+/* Make the status checkmark animate in */
+.status-check {
+  stroke-dasharray: 50;
+  stroke-dashoffset: 50;
+  animation: drawCheck 0.6s forwards 0.2s;
+}
+
+@keyframes drawCheck {
+  to { stroke-dashoffset: 0; }
+}
 
 /* form buttons */
 .form-actions {
@@ -1567,27 +1782,38 @@ input:focus {
   padding: 10px 12px;
 }
 
-/* status area */
-.form-status {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  margin-top: 16px;
-  padding: 10px 12px;
-  background: linear-gradient(
-    90deg,
-    rgba(123, 223, 246, 0.06),
-    rgba(138, 125, 252, 0.03)
-  );
-  border-radius: 10px;
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  color: #041423;
-  font-weight: 800;
+/* --- Fix: Orbit Ring visibility & Form focus --- */
+.contact-form {
+    position: relative; /* Essential for the ring's absolute positioning */
+    isolation: isolate; /* Keeps the ring behind the text but above the background */
 }
+
+.orbit-ring {
+    /* Make it look like a glowing pulse */
+    background: radial-gradient(circle, rgba(123, 223, 246, 0.15) 0%, transparent 70%);
+    border: 1.5px solid rgba(123, 223, 246, 0.3);
+    transition: transform 0.1s ease-out, opacity 0.3s ease; /* Faster tracking */
+    z-index: -1; 
+}
+
+/* --- Fix: Form Input Focus State --- */
+.contact-form input:focus, 
+.contact-form textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+    background: rgba(123, 223, 246, 0.05); /* Slight tint on focus */
+    box-shadow: 0 0 20px rgba(123, 223, 246, 0.1);
+}
+
+/* --- Fix: Form Status Contrast --- */
+.form-status {
+    background: rgba(123, 223, 246, 0.1);
+    border: 1px solid var(--accent);
+    color: var(--accent); /* Changed from dark blue to accent color for readability */
+}
+
 .form-status .small {
-  font-weight: 700;
-  color: rgba(4, 20, 35, 0.8);
-  font-size: 12px;
+    color: rgba(232, 240, 255, 0.8);
 }
 
 /* orbit ring */
@@ -1817,6 +2043,14 @@ input:focus {
 
 /* ===== Footer styles (add to style.css) ===== */
 .ve-footer {
+  background: rgba(15, 23, 33, 0.2);
+  backdrop-filter: blur(10px); /* Blurs the background behind the console */
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 125, 252, 0.4);
+  border-radius: 16px;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.5), 
+              inset 0 0 20px rgba(138, 125, 252, 0.05);
+
   padding: 36px 0 18px 0;
   position: relative;
   z-index: 4;
@@ -2109,6 +2343,9 @@ input:focus {
 }
 
 .quote-backdrop {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 125, 252, 0.4);
   position: fixed;
   inset: 0;
   background: var(--modal-bg);
@@ -2123,17 +2360,28 @@ input:focus {
 }
 
 .quote-panel {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(138, 125, 252, 0.4);
   width: min(920px, calc(100% - 48px));
   max-height: calc(100vh - 80px);
-  overflow: auto;
+  border: 1px solid rgba(138, 125, 252, 0.4);
+  overflow-y: auto; /* Changed to y-only to prevent horizontal shifts */
   background: linear-gradient(180deg, var(--panel-bg), rgba(8, 10, 14, 0.98));
   border-radius: 12px;
   box-shadow: 0 8px 40px rgba(2, 6, 23, 0.6);
   padding: 20px;
-  border: 1px solid var(--panel-raised);
   color: #e8f0ff;
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue",
-    Arial;
+  font-family: system-ui, -apple-system, sans-serif;
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 .quote-head {
@@ -2215,7 +2463,6 @@ input:focus {
 }
 .btn-primary {
   background: var(--accent);
-  color: white;
 }
 .btn-ghost {
   background: transparent;
@@ -2250,5 +2497,9 @@ input:focus {
 @media (max-width: 640px) {
   .quote-form .row {
     flex-direction: column;
+    
   }
 }
+
+
+
